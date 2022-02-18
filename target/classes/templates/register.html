@@ -1,34 +1,37 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">  
-    <head>   
-        <meta http-equiv="Content-Type" content="text/html; charset==UTF-8" />
-    <title>  
-    Registration Page  
-    </title>  
-    </head>  
-    <body bgcolor="Lightskyblue">  
-    <br>  
-    <br>  
-    <form: form method="POST" modelAttribute="userForm">  
-      
-    Email:  
-    <input type="email" id="email" name="email"/> <br>    
-    <br> <br>  
-    Password:  
-    <input type="Password" id="password" name="password"> <br>   
-    <br> <br>  
-    Re-type password:  
-    <input type="Password" id="passwordConfirm" name="passwordConfirm"> <br> <br>  
-    <label>   
-    Role:  
-    </label><br>  
-    <input type="radio" name="Investor"/> Investor <br>  
-    <input type="radio" name="Enterpreneur"/> Enterpreneur <br>  
-    <br>  
-    <br>  
-      
-    <input type="button" value="Submit"/> 
+<html xmlns:th="http://www.thymeleaf.org">
 
-    </form>  
-    </body>  
-    </html>  
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset==UTF-8" />
+    <title>
+        Registration Page
+    </title>
+</head>
+
+<body bgcolor="Lightskyblue">
+    <br>
+    <br>
+    <form: form method="POST" modelAttribute="userForm">
+
+        Email:
+        <input type="email" id="email" name="email" /> <br>
+        <br> <br>
+        Password:
+        <input type="Password" id="password" name="password"> <br>
+        <br> <br>
+        Re-type password:
+        <input type="Password" id="passwordConfirm" name="passwordConfirm"> <br> <br>
+        <label>
+            Role:
+        </label><br>
+        <input type="radio" name="Investor" /> Investor <br>
+        <input type="radio" name="Enterpreneur" /> Enterpreneur <br>
+        <br>
+        <br>
+
+        <input type="button" value="Submit" />
+
+        </form>
+</body>
+
+</html>
