@@ -11,7 +11,7 @@ public class AdminController {
 
     @GetMapping("/")
     public String test() {
-        return "Hello Everyone!";
+        return "index";
     }
 
     @GetMapping("/register")
