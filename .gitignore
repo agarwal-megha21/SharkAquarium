@@ -1,0 +1,11 @@
+
+
+### VisualStudioCode ###
+.vscode   
+
+### IntelIJ ###
+.idea
+
+# Ignore all local history of files
+**/.history
+
