@@ -14,7 +14,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
@@ -34,14 +33,14 @@ public class AdminController {
 
     @GetMapping("/profile")
     public String profile() {
-        return "Hello User!";
+        return "profile";
     }
 
     @GetMapping("/register")
     public String showForm(Model model) {
         user user = new user();
         model.addAttribute("userForm", user);
-        return "register.jsp";
+        return "register";
     }
 
     @PostMapping("/register")
@@ -54,7 +53,7 @@ public class AdminController {
 		userDAO.save(userForm);
 		String username = userForm.getUsername();
 		authenticateService.loginUser(session, username);
-		return "redirect:/profile";
+		return "redirect:/customer_profile";
     }
 
     @GetMapping("/login")
@@ -66,9 +65,10 @@ public class AdminController {
             model.addAttribute("message", "You have been logged out successfully.");
 
 		if (authenticateService.isAuthenticated(session)) {
-			return "redirect:/profile";
+			return "redirect:/customer_profile";
         }
-		model.addAttribute("user", new user());
+        
+		model.addAttribute("user", new user()); 
         return "login";
     }
 
@@ -81,7 +81,7 @@ public class AdminController {
 		try {
             if(authenticateService.checkCredentials(username, password)) {
                 authenticateService.loginUser(session, username);
-        		return "redirect:/profile";
+        		return "redirect:/customer_profile";
             }
 
 		} catch (Exception e) {
@@ -90,5 +90,12 @@ public class AdminController {
 		redir.addFlashAttribute("message", "Invalid login credentials");
         return "redirect:/login";
     } 
+
+    @GetMapping("/logout")  
+    public String logout(HttpSession session){ 
+        authenticateService.logoutUser(session);
+        return "redirect:/login";
+    } 
+
 
 }

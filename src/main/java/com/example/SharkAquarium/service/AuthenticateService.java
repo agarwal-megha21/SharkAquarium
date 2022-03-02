@@ -9,9 +9,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service
-public class AuthenticateService {
-
+@Service 
+public class AuthenticateService { 
     @Autowired
     private UserDAO userDAO;
     @Autowired
@@ -33,6 +32,12 @@ public class AuthenticateService {
 
     public void loginUser(HttpSession session, String username) {
         session.setAttribute(loggedUser, username);
+    }
+
+    public void logoutUser(HttpSession session){
+        
+        System.out.println("Logging out user");
+        session.removeAttribute(loggedUser);
     }
 
     public String getRole(String username) {

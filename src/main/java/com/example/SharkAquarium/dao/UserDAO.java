@@ -29,7 +29,7 @@ public class UserDAO {
 	}
 
     public void save(user user) {
-		// user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+		user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 		String sql="insert into user(username,password,role) values (?,?,?)";
 		jt.update(sql,user.getUsername(),user.getPassword(),user.getRole());	
 	}
