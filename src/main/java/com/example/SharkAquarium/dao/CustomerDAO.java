@@ -45,7 +45,7 @@ public class CustomerDAO{
 
      public boolean isCustomerExists(String username) {
          
-        String sql = "SELECT count(*) FROM userdetails WHERE username = ?";
+        String sql = "SELECT count(*) FROM userDetails WHERE username = ?";
         int cnt = jt.queryForObject(sql, Integer.class, username);
         return cnt > 0;
     }
@@ -53,7 +53,7 @@ public class CustomerDAO{
 
     public void updateCustomer(userDetails cst, String username) {
         System.out.println(username);
-        String sql = "UPDATE userdetails SET firstName=?, middleName=?, lastName=?, houseNo=?, city=?, pincode=?, streetName=?, phoneNo=?, gender=?, emailID=? where username = ?";
+        String sql = "UPDATE userDetails SET firstName=?, middleName=?, lastName=?, houseNo=?, city=?, pincode=?, streetName=?, phoneNo=?, gender=?, emailID=? where username = ?";
             
         jt.update(
                 sql, cst.getFirstName(), cst.getMiddleName(), cst.getLastName(), cst.getHouseNo(), cst.getCity(),
@@ -62,25 +62,18 @@ public class CustomerDAO{
     }
 
     public int getUserIDbyUsername(String username) {
-        String sql = "SELECT id FROM userdetails WHERE username = ?";
-        return jt.queryForObject(sql, (rs, i) -> {
-            return rs.getInt("id");
-        }, username);
+        String sql = "SELECT id FROM userDetails WHERE username = ?";
+        return jt.queryForObject(sql, (rs, i) -> { return rs.getInt("id"); }, username);
     }
 
     public void deleteCustomer(String username) {
-        String sql = "DELETE FROM userdetails WHERE username = ?";
+        String sql = "DELETE FROM userDetails WHERE username = ?";
         jt.update(sql, username);
     }
 
     public userDetails getCustomer(String username) {
-        String sql = "SELECT * FROM userdetails WHERE username = ?";
+        String sql = "SELECT * FROM userDetails WHERE username = ?";
         return jt.queryForObject(sql, customerRowMapper, username);
-    }
-
-    public void addAdress(userDetails cst, String username) {
-        String sql = "INSERT INTO addressDetails (city, streetName, pincode, houseNo, username) VALUES (?,?,?,?,?)";
-        jt.update(sql, cst.getCity(), cst.getStreetName(), cst.getPincode(), cst.getHouseNo(), username);
     }
 
     public List<userDetails> getAllCustomers() {
@@ -88,8 +81,4 @@ public class CustomerDAO{
         return jt.query(sql, customerRowMapper);
     }
 
-    public void deleteAddressHistory(String username) {
-        String sql = "DELETE FROM addressDetails WHERE username = ?";
-        jt.update(sql, username);
-}
 }

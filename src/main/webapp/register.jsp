@@ -13,22 +13,6 @@
         <link rel="stylesheet" href="assethome/css/Ludens-Users---2-Register.css">
         <link rel="stylesheet" href="assethome/css/style1.css">
     </head>
-
-    <!-- <body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="54" style="background: url(&quot;https://cdn.bootstrapstudio.io/placeholders/1400x800.png&quot;);"> -->
-        <body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="54" style="background: url(&quot;https://cdn.bootstrapstudio.io/placeholders/1400x800.png&quot;);">
-            <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark" id="mainNav" style="background: var(--bs-success);">
-                <div class="container"><a class="navbar-brand" href="welcome">Mansha Pharma</a><button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
-                    <div class="collapse navbar-collapse" id="navbarResponsive">
-                        <ul class="navbar-nav ms-auto text-uppercase">
-                            <li class="nav-item"></li>
-                            <li class="nav-item"></li>
-                            <li class="nav-item"><a class="nav-link" href="checkRegister">HOME</a></li>
-                            <!-- <li class="nav-item"><a class="nav-link" href="register">SIGNUP</a></li> -->
-                            <li class="nav-item"></li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
         
         <section class="register-photo" style="background-size: center;height: 900px; margin-top: 50px;">
             <div class="form-container" style="margin-top: 100px; align-items: center; margin-left: 150px; margin-right: 800px; width: 800px;" >
@@ -81,7 +65,7 @@
                                     </div>
                                 </spring:bind>
                             </div>
-                            <div class="row form-group">
+                            <div class="row form-group" style="margin-top: 20px;">
                                 <button class="btn btn-lg btn-primary btn-block" id="submitButton" type="submit">Submit</button>
                             </div>
                             <div class="row form-group" style="margin-top: 10px;">

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserValidatorService {
+    
     @Autowired
     private CustomerDAO customerDAO;
     
@@ -34,15 +35,7 @@ public class UserValidatorService {
         return customerDAO.getUserIDbyUsername(username);
     }
 
-    public void addAdress(userDetails customer, String username) {
-        customerDAO.addAdress(customer, username);
-    }
-
     public List<userDetails> getAllCustomers() {
         return customerDAO.getAllCustomers();
-    }
-
-    public void deleteAddressHistory(String username) {
-        customerDAO.deleteAddressHistory(username);
     }
 }

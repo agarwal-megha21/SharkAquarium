@@ -22,8 +22,6 @@ public class UserController {
     private UserValidatorService customerService;
     @Autowired
     private AuthenticateService authenticateService;
-    // @Autowired
-    // private UserDAO userDAO;
 
     @Autowired
     private CustomerDAO customerDAO;
@@ -39,12 +37,9 @@ public class UserController {
 
 
     @PostMapping("/customer_profile")
-    public String customer_profile(@ModelAttribute("customerDetails") userDetails customer, HttpSession session,
-            RedirectAttributes redir) {
+    public String customer_profile(@ModelAttribute("userDetails") userDetails customer, HttpSession session, RedirectAttributes redir) {
         String username = authenticateService.getCurrentUser(session);
         customerService.createCustomer(customer, username);
-        // customerService.addAdress(customer, username);
-        System.out.println("finish");
         redir.addFlashAttribute("message", "Profile Created Successfully");
         return "redirect:/welcome";
     }

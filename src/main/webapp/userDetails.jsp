@@ -8,34 +8,21 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Customer Profile</title>
+    <title>Profile</title>
     <link rel="stylesheet" href="assethome/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kaushan+Script">
     <link rel="stylesheet" href="assethome/fonts/font-awesome.min.css">
 </head>
-<body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="54" style="background: url(&quot;https://cdn.bootstrapstudio.io/placeholders/1400x800.png&quot;);">
-  <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark" id="mainNav" style="background: var(--bs-success);">
-    <div class="container"><a class="navbar-brand" href="welcome">Mansha Pharma</a><button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ms-auto text-uppercase">
-                <li class="nav-item"></li>
-                <li class="nav-item"></li>
-                <!-- <li class="nav-item"><a class="nav-link" href="login">SIGNIN</a></li> -->
-                <!-- <li class="nav-item"><a class="nav-link" href="register">SIGNUP</a></li> -->
-                <li class="nav-item"></li>
-            </ul>
-        </div>
-    </div>
-</nav>
-  <section style="background: url(&quot;assethome/img/b1.jpg&quot;);background-size: cover;">
-    <div class="form-container" style="margin-left: 100px; margin-right: 100px;">
-<form action="/customer_profile" model="customerDetails" method = "post" style="background-color: rgba(255,255,255,0.64);">
+
+<section class="register-photo" style="background-size: center;height: 900px; margin-top: 50px;">
+  <div class="form-container" style="margin-top: 100px; align-items: center; margin-left: 150px; margin-right: 800px; width: 800px;" >
+    <form action="/customer_profile" model="customerDetails" method = "post" style="background-color: rgba(255,255,255,0.64);">
   <div class="row form-group" style="margin-top: 10px;">
 </div>
   <div class="container" style="margin-top: 0px;">
     <div class="row form-group" style="margin-top: 10px;">
-      <h2>Customer Profile</h2>
+      <h2>Profile</h2>
     </div>
 <div class="row form-group" style="margin-top: 10px;">
     <label for="firstName"><b>First Name</b></label>
