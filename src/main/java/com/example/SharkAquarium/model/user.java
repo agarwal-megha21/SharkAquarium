@@ -1,18 +1,33 @@
 package com.example.SharkAquarium.model;
 
-public class user {
+import javax.persistence.CascadeType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
-    private String email;
+public class user {
+    
+	private String username;
     private String password;
     private String passwordConfirm;
-    private String role;
+    private String role; 
 
-    public String getEmail() {
-        return email;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "username") 
+    private userDetails cst; 
+        
+    public userDetails getUserDetails() {
+        return cst;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setUserDetails(userDetails cst) {
+        this.cst = cst;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
