@@ -43,6 +43,5 @@ public class UserValidator implements Validator{
         if (!(user.getRole().equals("Investor") || user.getRole().equals("Entrepreneur"))) {
             errors.rejectValue("role", "Diff.userForm.role");
         }
-    }
-    
+    }  
 }

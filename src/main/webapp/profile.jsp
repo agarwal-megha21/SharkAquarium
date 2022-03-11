@@ -9,11 +9,12 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Profile Page</title>
+    <title>Entrepreneur's Profile Page</title>
     <link rel="stylesheet" href="assethome/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assethome/css/Ludens-Users---2-Register.css">
     <link rel="stylesheet" href="assethome/css/style1.css">
     <li class=lhiav-item><a class="nav-link" href="logout">Log Out</a></li>
+    <li class=lhiav-item><a class="nav-link" href="create_pitch">Create Pitch</a></li>
   </head>
   <section class="register-photo" style="background-size: center;height: 900px; margin-top: 50px;">
     <div class="form-container" style="margin-top: 100px; align-items: center; margin-left: 150px; margin-right: 800px; width: 800px;" >

@@ -25,8 +25,8 @@ public class UserController {
 
     @Autowired
     private CustomerDAO customerDAO;
-    
-    @GetMapping("/customer_profile")
+   
+    @GetMapping("/customer_profile") 
     public String customer_profile(HttpSession session) {
        if (customerDAO.isCustomerExists(authenticateService.getCurrentUser(session))){
            return "redirect:/welcome";
@@ -35,7 +35,6 @@ public class UserController {
         return "userDetails";
     }
 
-
     @PostMapping("/customer_profile")
     public String customer_profile(@ModelAttribute("userDetails") userDetails customer, HttpSession session, RedirectAttributes redir) {
         String username = authenticateService.getCurrentUser(session);
@@ -43,15 +42,18 @@ public class UserController {
         redir.addFlashAttribute("message", "Profile Created Successfully");
         return "redirect:/welcome";
     }
-
+     
     @GetMapping("/welcome")
     public String welcomeUser(HttpSession session, Model model){
         String userName = authenticateService.getCurrentUser(session);
         userDetails user = customerService.getCustomer(userName);
+        String role = authenticateService.getRole(userName); 
         model.addAttribute("customer", user);
-        return "profile";
+        if (role.equalsIgnoreCase("entrepreneur")) {
+            return "profile";
+        }else {
+            return "investorProfile";
+         }
     }
-
-
-
 }
+

@@ -46,6 +46,5 @@ public class UserDAO {
         } catch(EmptyResultDataAccessException e) {
         	return null;
         }         
-    }
-    
+    }  
 }

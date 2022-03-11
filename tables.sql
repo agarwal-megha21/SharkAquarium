@@ -23,3 +23,14 @@ CREATE TABLE IF NOT EXISTS userDetails
     FOREIGN KEY (username) REFERENCES user(username) ON DELETE CASCADE,
     PRIMARY KEY (id)
 );
+
+
+CREATE TABLE IF NOT EXISTS pitch
+(
+    id INT NOT NULL AUTO_INCREMENT,
+    description VARCHAR(1024) NOT NULL,
+    amount INT NOT NULL,
+    username VARCHAR(255) NOT NULL,
+    FOREIGN KEY(username) REFERENCES user(username) ON DELETE CASCADE,
+    PRIMARY KEY (id)
+);

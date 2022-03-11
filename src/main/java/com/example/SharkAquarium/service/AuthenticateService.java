@@ -50,6 +50,4 @@ public class AuthenticateService {
             return true;
         return false;
     }
-    
-    
 }
