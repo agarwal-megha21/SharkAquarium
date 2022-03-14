@@ -27,7 +27,13 @@
                         <div class="container" style="margin-top: 0px;">
                             <div class="row form-group" style="margin-top: 10px;">
                                 <h2>Add pitch</h2>
-                            </div> 
+                            </div>
+                            
+                            <div class="row form-group" style="margin-top: 10px;">
+                                <label for="company"><b>Company Name</b></label>
+                                <br>
+                                <input type="text" placeholder="Enter Company Name" name="company" id="company" required="required">
+                            </div>
 
                             <div class="row form-group" style="margin-top: 10px;">
                                 <label for="description"><b>Description</b></label>

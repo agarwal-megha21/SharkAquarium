@@ -28,9 +28,12 @@ CREATE TABLE IF NOT EXISTS userDetails
 CREATE TABLE IF NOT EXISTS pitch
 (
     id INT NOT NULL AUTO_INCREMENT,
+    company VARCHAR(255) NOT NULL,
     description VARCHAR(1024) NOT NULL,
     amount INT NOT NULL,
     username VARCHAR(255) NOT NULL,
     FOREIGN KEY(username) REFERENCES user(username) ON DELETE CASCADE,
     PRIMARY KEY (id)
 );
+
+alter table pitch add company varchar(255);

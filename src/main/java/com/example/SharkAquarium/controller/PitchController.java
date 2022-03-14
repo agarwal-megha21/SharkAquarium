@@ -32,11 +32,13 @@ public class PitchController {
     @PostMapping("/create_pitch")
     public String create_pitch(@ModelAttribute("pitch") pitch p, HttpSession session,
             RedirectAttributes redir) {
+    
         String username = authenticateService.getCurrentUser(session);
         pitchService.createPitch(p, username);
+        System.out.println(p.getCompany());
         System.out.println("Pitch created");
         return "redirect:/welcome";
       
-    }
+    } 
+    
 }
-

@@ -1,9 +1,9 @@
 package com.example.SharkAquarium.model;
 
 
-
 public class pitch{
     private int id;
+    private String company;
     private String description;
     private double amount;
     private String userName;
@@ -27,6 +27,14 @@ public class pitch{
 
     public void setUserName(String username){
         this.userName = username;
+    }
+    
+    public String getCompany(){
+        return this.company;
+    }
+
+    public void setCompany(String company){
+        this.company = company;
     }
 
     public void setDescription(String description) {
