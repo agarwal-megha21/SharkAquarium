@@ -44,7 +44,9 @@
                 <th>ID</th>
                 <th>Company</th>
                 <th>Description</th>
-                <th>Amount</th> 
+                <th>Amount Per Stock</th> 
+                <th>Number of Stocks</th>
+                <th>Number of Available Stocks</th>
             </tr>
         </thead> 
         <tbody>
@@ -53,7 +55,9 @@
                     <td><c:out value="${pitch.id}" /></td>
                     <td><c:out value="${pitch.company}" /></td>
                     <td><c:out value="${pitch.description}" /></td>
-                    <td>Rs.<c:out value="${pitch.amount}" /></td>
+                    <td>Rs.<c:out value="${pitch.amountPerStock}" /></td>
+                    <td><c:out value="${pitch.numberOfStocks}" /></td>
+                    <td><c:out value="${pitch.availableStocks}" /></td>
                     <td>
                         <!-- <button type="button" class="btn btn-success"  onclick="location.href = '/listmedicine/${med.id}'"><i class="fas fa-pencil-alt d-xl-flex justify-content-xl-center align-items-xl-center"></i></button> -->
                     </td>

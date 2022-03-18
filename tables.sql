@@ -24,16 +24,27 @@ CREATE TABLE IF NOT EXISTS userDetails
     PRIMARY KEY (id)
 );
 
-
 CREATE TABLE IF NOT EXISTS pitch
 (
     id INT NOT NULL AUTO_INCREMENT,
     company VARCHAR(255) NOT NULL,
     description VARCHAR(1024) NOT NULL,
-    amount INT NOT NULL,
+    amountPerStock DOUBLE NOT NULL,
+    numberOfStocks INT NOT NULL,
+    availableStocks INT NOT NULL,
     username VARCHAR(255) NOT NULL,
     FOREIGN KEY(username) REFERENCES user(username) ON DELETE CASCADE,
     PRIMARY KEY (id)
 );
+ 
+CREATE TABLE IF NOT EXISTS transaction
+(
+    id INT NOT NULL AUTO_INCREMENT,
+    pitchId INT NOT NULL,
+    username VARCHAR(255) NOT NULL,
+    amount DOUBLE NOT NULL,
+    FOREIGN KEY(username) REFERENCES user(username) ON DELETE CASCADE,
+    FOREIGN KEY(pitchId) REFERENCES pitch(id) ON DELETE CASCADE,
+    PRIMARY KEY (id)
+);
 
-alter table pitch add company varchar(255);

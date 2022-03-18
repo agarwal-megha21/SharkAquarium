@@ -15,7 +15,7 @@
                 <link rel="stylesheet" href="assethome/css/Ludens-Users---2-Register.css">
                 <link rel="stylesheet" href="assethome/css/style1.css">
                 <li class=lhiav-item><a class="nav-link" href="logout">Log Out</a></li>
-                <li class=lhiav-item><a class="nav-link" href="">View Pitches</a></li>
+                <li class=lhiav-item><a class="nav-link" href="#sec1">View Pitches</a></li>
             </head>
             <section class="register-photo" style="background-size: center;height: 900px; margin-top: 50px;">
                 <div class="form-container"
@@ -31,13 +31,13 @@
                 </div>
             </section>
 
-            <section>
-                <div align="center" style="background-color: rgba(255,255,255,0.64); margin-left: 100px; margin-right: 100px;">
+            <section >
+                <div id = "sec1" align="center" style="background-color: rgba(255,255,255,0.64); margin-left: 100px; margin-right: 100px;">
                     <br>
                     <div style="margin-top: 30px;">
                         <caption>
                             <h2 class=navbar-brand aria-controls="navbarResponsive" aria-expanded="false"
-                                aria-label="Toggle navigation">My Pitches</h2>
+                                aria-label="Toggle navigation">Available Pitches</h2>
                         </caption>
                     </div>
             
@@ -47,9 +47,11 @@
                                 <thead>
                                     <tr style="text-align: center;">
                                         <th>ID</th>
-                                        <th>Company</th>
+                                        <th>Company</th> 
                                         <th>Description</th>
-                                        <th>Amount</th>
+                                        <th>Amount Per Stock</th>
+                                        <th>Number Of Stocks Available</th> 
+                                        <th>Enter number of Stocks</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -65,11 +67,19 @@
                                                 <c:out value="${pitch.description}" />
                                             </td>
                                             <td>Rs.
-                                                <c:out value="${pitch.amount}" />
+                                                <c:out value="${pitch.amountPerStock}" />
                                             </td>
                                             <td>
-                                                <!-- <button type="button" class="btn btn-success"  onclick="location.href = '/listmedicine/${med.id}'"><i class="fas fa-pencil-alt d-xl-flex justify-content-xl-center align-items-xl-center"></i></button> -->
+                                                <c:out value="${pitch.availableStocks}" />
+                                            </td> 
+                                            <td> 
+                                            <form  method="get" action="/pitches/invest/${pitch.id}">
+                                                <input type="text" id="numberOfStocks" name="numberOfStocks" >
+                                                <input type="submit" value="Invest" ></input>
+                                                
+                                            </form> 
                                             </td>
+                                            
                                         </tr>
                                     </c:forEach>
                                 </tbody>

@@ -12,8 +12,8 @@ public class SharkAquariumApplication {
     BCryptPasswordEncoder passwordEncoder(){
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
         return bCryptPasswordEncoder;
-    } 
+    }
     public static void main(String[] args) {
 		SpringApplication.run(SharkAquariumApplication.class, args);
 	} 
-}
+} 

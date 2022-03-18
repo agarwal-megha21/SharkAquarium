@@ -5,11 +5,13 @@ public class pitch{
     private int id;
     private String company;
     private String description;
-    private double amount;
+    private double amountPerStock;
+    private int numberOfStocks;
+    private int availableStocks;
     private String userName;
     
     public pitch(){}
-    public String getDescription() {
+    public String getDescription() { 
         return description;
     }
 
@@ -41,11 +43,28 @@ public class pitch{
         this.description = description;
     }
     
-    public double getAmount(){
-        return this.amount;
+    public double getAmountPerStock(){
+        return this.amountPerStock;
     }
 
-    public void setAmount(double amount) {
-        this.amount = amount;
-    }  
+    public void setAmountPerStock(double amountPerStock) {
+        this.amountPerStock = amountPerStock;
+    } 
+    
+    public int getNumberOfStocks() {
+        return this.numberOfStocks;
+    }
+
+    public void setNumberOfStocks(int numberOfStocks) {
+        this.numberOfStocks = numberOfStocks;
+    }
+    
+    public int getAvailableStocks() {
+        return this.availableStocks;
+    }
+
+    public void setAvailableStocks(int availableStocks) {
+        this.availableStocks = availableStocks;
+    }
+
 }
