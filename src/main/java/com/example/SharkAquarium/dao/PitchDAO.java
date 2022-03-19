@@ -9,7 +9,7 @@ import com.example.SharkAquarium.model.pitch;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Repository; 
 
 
 @Repository
@@ -22,29 +22,46 @@ public class PitchDAO {
         public pitch mapRow(ResultSet rs, int i) throws SQLException {
             pitch p = new pitch();
             p.setId(rs.getInt("id"));
+            p.setCompany(rs.getString("company"));
             p.setDescription(rs.getString("description"));
-            p.setAmount(rs.getDouble("amount"));
+            p.setAmountPerStock(rs.getDouble("amountPerStock"));
+            p.setNumberOfStocks(rs.getInt("numberOfStocks"));
+            p.setAvailableStocks(rs.getInt("availableStocks"));
+            // p.setTimestamp(rs.getLong("timestamp"));
             return p;
         }
-    };
-
+    };  
+     
     public void createPitch(pitch p, String username) { 
-        String sql = "INSERT INTO pitch (id, userName, description, amount ) VALUES (?, ?, ?, ? )";
-        jt.update(sql, p.getId(), username, p.getDescription(), p.getAmount());
+        if(duplicateCompanyPitch(p.getCompany()))
+            System.out.println("Duplicate Company Name: " + p.getCompany());
+        else{ 
+            String sql = "INSERT INTO pitch (id, company, userName, description, amountPerStock, numberOfStocks, availableStocks) VALUES (?, ?, ?, ?, ?, ?, ? )";
+            jt.update(sql, p.getId(), p.getCompany(), username, p.getDescription(), p.getAmountPerStock(), p.getNumberOfStocks(), p.getNumberOfStocks());
+        }
     }
 
     public boolean hasAnyPitch(String username) {
-
         String sql = "SELECT count(*) FROM pitch WHERE username = ?";
         int cnt = jt.queryForObject(sql, Integer.class, username);
         return cnt > 0;
     }
+    
+    public boolean duplicateCompanyPitch(String company){
+        String sql = "SELECT count(*) FROM pitch WHERE company = ?";
+        int cnt = jt.queryForObject(sql, Integer.class, company);
+        return cnt > 0;
+    }
 
     public void updatePitch(pitch p, int id) {
+        
         System.out.println(id+""); 
-        String sql = "UPDATE pitch SET description=?, amount=?  where id = ?";
-
-        jt.update(sql, p.getDescription(), p.getAmount(), id);
+        // if (duplicateCompanyPitch(p.getCompany()))
+        //     System.out.println("Duplicate Company Name: " + p.getCompany());
+    
+        String sql = "UPDATE pitch SET company=?, description=?, amountPerStock=?, numberOfStocks=?, availableStocks=? where id = ?";
+        jt.update(sql, p.getCompany(), p.getDescription(), p.getAmountPerStock(), p.getNumberOfStocks(), p.getAvailableStocks(),id);
+        
     }
 
     public void deletePitch(int id) {

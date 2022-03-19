@@ -30,6 +30,7 @@
 			<scope>test</scope>
 		</dependency>
 
+
 		<dependency>
 			<groupId>org.apache.tomcat.embed</groupId>
 			<artifactId>tomcat-embed-jasper</artifactId>
@@ -47,15 +48,17 @@
 			<artifactId>spring-tx</artifactId>
 			<version>5.3.10</version>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-tx</artifactId>
-            <version>5.3.10</version>
-        </dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>5.3.10</version>
+		</dependency>
+
 
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -68,9 +71,9 @@
 		</dependency>
 
 		<dependency>
-		    <groupId>org.springframework.security</groupId>
-		    <artifactId>spring-security-taglibs</artifactId>
-		    <version>5.3.4.RELEASE</version>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+			<version>5.3.4.RELEASE</version>
 		</dependency>
 
 		<dependency>
@@ -84,7 +87,6 @@
 			<artifactId>spring-boot-devtools</artifactId>
 		</dependency>
 
-		
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
@@ -99,10 +101,8 @@
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
 
+
 	</dependencies>
-		
-
-
 	<build>
 		<plugins>
 			<plugin>
