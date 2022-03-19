@@ -61,7 +61,8 @@ public class PitchController {
             String username = authenticateService.getCurrentUser(session);
             transaction t = new transaction();
             
-            t.setAmount(p.getAmountPerStock()*numStocks);
+            t.setAmountPerStock(p.getAmountPerStock());
+            t.setNumberOfStocks(numStocks);
             transactionService.createTransaction(t, username, pitchId);
             
             p.setAvailableStocks(p.getAvailableStocks()-numStocks);

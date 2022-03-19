@@ -42,7 +42,8 @@ CREATE TABLE IF NOT EXISTS transaction
     id INT NOT NULL AUTO_INCREMENT,
     pitchId INT NOT NULL,
     username VARCHAR(255) NOT NULL,
-    amount DOUBLE NOT NULL,
+    amountPerStock DOUBLE NOT NULL,
+    numberOfStocks INT NOT NULL,
     FOREIGN KEY(username) REFERENCES user(username) ON DELETE CASCADE,
     FOREIGN KEY(pitchId) REFERENCES pitch(id) ON DELETE CASCADE,
     PRIMARY KEY (id)

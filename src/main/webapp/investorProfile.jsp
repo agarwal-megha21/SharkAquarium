@@ -66,7 +66,7 @@
                                             <td>
                                                 <c:out value="${pitch.description}" />
                                             </td>
-                                            <td>Rs.
+                                            <td>$ 
                                                 <c:out value="${pitch.amountPerStock}" />
                                             </td>
                                             <td>

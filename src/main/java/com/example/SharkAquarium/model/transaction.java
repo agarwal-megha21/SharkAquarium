@@ -3,7 +3,8 @@ package com.example.SharkAquarium.model;
 public class transaction {
     
     private int id;
-    private double amount;
+    private double amountPerStock;
+    private int numberOfStocks;
     private String username;
     private int pitchId;
 
@@ -23,11 +24,19 @@ public class transaction {
         this.pitchId = pitchId;
     }
 
-    public double getAmount(){
-        return this.amount;
+    public double getAmountPerStock(){
+        return this.amountPerStock;
     }
-    public void setAmount(double amount){
-        this.amount = amount;
+    public void setAmountPerStock(double amountPerStock){
+        this.amountPerStock = amountPerStock;
+    }
+
+    public double getNumberOfStocks() {
+        return this.numberOfStocks;
+    }
+
+    public void setNumberOfStocks(int numberOfStocks) {
+        this.numberOfStocks = numberOfStocks;
     }
 
     public String getUsername(){

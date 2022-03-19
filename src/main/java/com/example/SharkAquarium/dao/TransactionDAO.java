@@ -23,15 +23,16 @@ public class TransactionDAO {
         public transaction mapRow(ResultSet rs, int i) throws SQLException {
             transaction p = new transaction();
             p.setId(rs.getInt("id")); 
-            p.setAmount(rs.getDouble("amount"));
+            p.setAmountPerStock(rs.getDouble("amountPerStock"));
+            p.setNumberOfStocks(rs.getInt("numberOfStocks"));
             // p.setTimestamp(rs.getLong("timestamp"));
             return p;
         } 
     };
 
     public void createTransaction(transaction p, String username, int pitchId){
-        String sql = "INSERT into transaction (id, pitchId, username, amount) VALUES (?, ?, ?, ?)";
-        jt.update(sql, p.getId(), pitchId, username, p.getAmount());
+        String sql = "INSERT into transaction (id, pitchId, username, amountPerStock, numberOfStocks) VALUES (?, ?, ?, ?, ? )";
+        jt.update(sql, p.getId(), pitchId, username, p.getAmountPerStock(), p.getNumberOfStocks());
     }
 
     public List<transaction> getTransactions(){

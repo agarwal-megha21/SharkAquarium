@@ -55,7 +55,7 @@
                     <td><c:out value="${pitch.id}" /></td>
                     <td><c:out value="${pitch.company}" /></td>
                     <td><c:out value="${pitch.description}" /></td>
-                    <td>Rs.<c:out value="${pitch.amountPerStock}" /></td>
+                    <td>$ <c:out value="${pitch.amountPerStock}" /></td>
                     <td><c:out value="${pitch.numberOfStocks}" /></td>
                     <td><c:out value="${pitch.availableStocks}" /></td>
                     <td>
