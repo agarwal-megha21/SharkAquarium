@@ -1,10 +1,14 @@
 package com.example.SharkAquarium.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import com.example.SharkAquarium.dao.CustomerDAO;
+import com.example.SharkAquarium.model.pitch;
 import com.example.SharkAquarium.model.userDetails;
 import com.example.SharkAquarium.service.AuthenticateService;
+import com.example.SharkAquarium.service.PitchService;
 import com.example.SharkAquarium.service.UserValidatorService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +26,8 @@ public class UserController {
     private UserValidatorService customerService;
     @Autowired
     private AuthenticateService authenticateService;
-
+    @Autowired
+    private PitchService pitchService;
     @Autowired
     private CustomerDAO customerDAO;
    
@@ -42,18 +47,24 @@ public class UserController {
         redir.addFlashAttribute("message", "Profile Created Successfully");
         return "redirect:/welcome";
     }
+    
      
     @GetMapping("/welcome")
     public String welcomeUser(HttpSession session, Model model){
         String userName = authenticateService.getCurrentUser(session);
         userDetails user = customerService.getCustomer(userName);
         String role = authenticateService.getRole(userName); 
-        model.addAttribute("customer", user);
+        model.addAttribute("customer", user); 
+        
         if (role.equalsIgnoreCase("entrepreneur")) {
+            List<pitch> pList = pitchService.getAllPitches(userName); 
+            model.addAttribute("list", pList);
             return "profile";
         }else {
+            List<pitch> pList = pitchService.getAllPitches();
+            model.addAttribute("list", pList);
             return "investorProfile";
-         }
+        } 
     }
 }
 

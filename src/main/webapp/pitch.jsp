@@ -27,7 +27,13 @@
                         <div class="container" style="margin-top: 0px;">
                             <div class="row form-group" style="margin-top: 10px;">
                                 <h2>Add pitch</h2>
-                            </div> 
+                            </div>
+                            
+                            <div class="row form-group" style="margin-top: 10px;">
+                                <label for="company"><b>Company Name</b></label>
+                                <br>
+                                <input type="text" placeholder="Enter Company Name" name="company" id="company" required="required">
+                            </div>
 
                             <div class="row form-group" style="margin-top: 10px;">
                                 <label for="description"><b>Description</b></label>
@@ -37,11 +43,17 @@
                             </div>
 
                             <div class="row form-group" style="margin-top: 10px;">
-                                <label for="amount"><b>Amount</b></label>
+                                <label for="amountPerStock"><b>Amount Per Stock</b></label>
                                 <br>
-                                <input type="number" placeholder="Enter Amount" name="amount" id="amount">
+                                <input type="number" placeholder="Enter Amount Per Stock" name="amountPerStock" id="amountPerStock">
                             </div>
-                            
+
+                            <div class="row form-group" style="margin-top: 10px;">
+                                <label for="numberOfStocks"><b>Number Of Stocks</b></label>
+                                <br>
+                                <input type="number" placeholder="Enter Number Of Stocks" name="numberOfStocks" id="numberOfStocks">
+                            </div>
+ 
                             <div class="row form-group" style="margin-top: 20px;">
                                 <button type="submit" class="btn btn-lg btn-primary btn-block"
                                     style="color: black;">Create Pitch</button>
