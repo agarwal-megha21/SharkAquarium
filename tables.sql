@@ -49,3 +49,21 @@ CREATE TABLE IF NOT EXISTS transaction
     PRIMARY KEY (id)
 );
 
+CREATE TABLE IF NOT EXISTS stock
+(
+    id INT NOT NULL AUTO_INCREMENT,
+    stockId INT NOT NULL,
+    stockName VARCHAR(255) NOT NULL,
+    stockPrice DOUBLE NOT NULL,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE IF NOT EXISTS order
+(
+    id INT NOT NULL AUTO_INCREMENT,
+    orderId INT NOT NULL,
+    tickerId INT NOT NULL,
+    orderType VARCHAR(255) NOT NULL,
+    orderPrice DOUBLE NOT NULL,
+    PRIMARY KEY (id)
+);
