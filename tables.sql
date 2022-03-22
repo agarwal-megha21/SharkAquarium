@@ -49,3 +49,13 @@ CREATE TABLE IF NOT EXISTS transaction
     PRIMARY KEY (id)
 );
 
+CREATE TABLE IF NOT EXISTS wallet
+(
+    id INT NOT NULL AUTO_INCREMENT,
+    username VARCHAR(255) NOT NULL,
+    totalAmount DOUBLE NOT NULL,
+    availableAmount DOUBLE NOT NULL,
+    FOREIGN KEY(username) REFERENCES user(username) ON DELETE CASCADE,
+    PRIMARY KEY (id)
+);
+

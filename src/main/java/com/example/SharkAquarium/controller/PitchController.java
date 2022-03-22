@@ -48,7 +48,8 @@ public class PitchController {
         System.out.println("Pitch created");
         return "redirect:/welcome"; 
       
-    } 
+    }
+    
     @GetMapping("/pitches/invest/{id}") 
     public String invest(@PathVariable("id")int pitchId, HttpSession session, HttpServletRequest request){
        // System.out.println(pitchId+""); 
