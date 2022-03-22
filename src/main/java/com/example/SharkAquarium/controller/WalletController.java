@@ -49,31 +49,9 @@ public class WalletController {
         double amount = Double.valueOf(request.getParameter("amount"));
         walletService.addMoney(amount, username); 
         System.out.println(amount + " added");
-        return "wallet";
+        return "redirect:/wallet";
     }
 
-    // @GetMapping("/wallet/{id}")
-    // public String invest(@PathVariable("id") int pitchId, HttpSession session, HttpServletRequest request) {
-    //     // System.out.println(pitchId+"");
-    //     int numStocks = Integer.valueOf(request.getParameter("numberOfStocks"));
-    //     // System.out.println("Number of stocks selected = "+numStocks);
-
-    //     pitch p = pitchService.getPitch(pitchId);
-    //     if (p.getAvailableStocks() >= numStocks) {
-    //         String username = authenticateService.getCurrentUser(session);
-    //         transaction t = new transaction();
-
-    //         t.setAmountPerStock(p.getAmountPerStock());
-    //         t.setNumberOfStocks(numStocks);
-    //         transactionService.createTransaction(t, username, pitchId);
-
-    //         p.setAvailableStocks(p.getAvailableStocks() - numStocks);
-    //         pitchService.updatePitch(p, pitchId);
-
-    //     } else
-    //         System.out.println("Transaction failed: please reduce stocks count");
-    //     return "redirect:/welcome";
-
-    // }
+    
 
 }

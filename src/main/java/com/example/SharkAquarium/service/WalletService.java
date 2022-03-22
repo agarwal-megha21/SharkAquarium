@@ -26,15 +26,17 @@ public class WalletService {
     }
     
 
-    public void initiateOrder(double amount, String userName) {
+    public boolean initiateOrder(double amount, String userName) {
         wallet w = walletDAO.getWallet(userName);
         if(amount <= w.getAvailableAmount()){
             w.setAvailableAmount(w.getAvailableAmount() - amount);
             w.setTotalAmount(w.getTotalAmount());
             walletDAO.updateWallet(w, w.getId());
+            return true;
         }
         else
             System.out.println("Insufficient Available Balance");
+            return false;
     }
     
     public void processOrder(double amount, String userName) {

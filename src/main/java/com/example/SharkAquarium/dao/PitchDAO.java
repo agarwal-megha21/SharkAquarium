@@ -27,6 +27,7 @@ public class PitchDAO {
             p.setAmountPerStock(rs.getDouble("amountPerStock"));
             p.setNumberOfStocks(rs.getInt("numberOfStocks"));
             p.setAvailableStocks(rs.getInt("availableStocks"));
+            p.setUserName(rs.getString("username"));
             // p.setTimestamp(rs.getLong("timestamp"));
             return p;
         }
