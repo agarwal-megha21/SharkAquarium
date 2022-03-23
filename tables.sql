@@ -58,4 +58,3 @@ CREATE TABLE IF NOT EXISTS wallet
     FOREIGN KEY(username) REFERENCES user(username) ON DELETE CASCADE,
     PRIMARY KEY (id)
 );
-
