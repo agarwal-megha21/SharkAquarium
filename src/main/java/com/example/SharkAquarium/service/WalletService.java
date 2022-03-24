@@ -19,13 +19,14 @@ public class WalletService {
         walletDAO.updateWallet(w, w.getId());
     }
 
+    // when i cancel my order 
     public void recoverMoney(double amount, String userName) {
         wallet w = walletDAO.getWallet(userName);
         w.setAvailableAmount(w.getAvailableAmount() + amount);
         walletDAO.updateWallet(w, w.getId());
     }
     
-
+    // simply creating an order(this hasn't been completed)
     public boolean initiateOrder(double amount, String userName) {
         wallet w = walletDAO.getWallet(userName);
         if(amount <= w.getAvailableAmount()){
@@ -39,6 +40,7 @@ public class WalletService {
             return false;
     }
     
+    // someone completes the pre-existing order
     public void processOrder(double amount, String userName) {
         wallet w = walletDAO.getWallet(userName);
         w.setAvailableAmount(w.getAvailableAmount());

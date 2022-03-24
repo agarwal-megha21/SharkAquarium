@@ -59,3 +59,13 @@ CREATE TABLE IF NOT EXISTS wallet
     PRIMARY KEY (id)
 );
 
+CREATE TABLE IF NOT EXISTS equityHolding
+(
+    id INT NOT NULL AUTO_INCREMENT,
+    username VARCHAR(255) NOT NULL,
+    company VARCHAR(255) NOT NULL,
+    totalQuantity INT NOT NULL,
+    availableQuantity INT NOT NULL,
+    FOREIGN KEY(username) REFERENCES user(username) ON DELETE CASCADE,
+    PRIMARY KEY (id)
+);

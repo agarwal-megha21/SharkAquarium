@@ -3,12 +3,10 @@ package com.example.SharkAquarium.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession; 
 
-import com.example.SharkAquarium.dao.PitchDAO;
-import com.example.SharkAquarium.dao.TransactionDAO;
 import com.example.SharkAquarium.model.pitch;
 import com.example.SharkAquarium.model.transaction;
-import com.example.SharkAquarium.model.wallet;
 import com.example.SharkAquarium.service.AuthenticateService;
+import com.example.SharkAquarium.service.EquityHoldingService;
 import com.example.SharkAquarium.service.PitchService;
 import com.example.SharkAquarium.service.TransactionService;
 import com.example.SharkAquarium.service.WalletService;
@@ -27,15 +25,13 @@ public class PitchController {
     @Autowired
     private PitchService pitchService;
     @Autowired
-    private PitchDAO pitchDAO;
-    @Autowired
     private AuthenticateService authenticateService;
-    @Autowired
-    private TransactionDAO transactionDAO;
     @Autowired
     private TransactionService transactionService;
     @Autowired
     private WalletService walletService;
+    @Autowired
+    private EquityHoldingService equityHoldingService;
 
     @GetMapping("/create_pitch")
     public String create_pitch(){
@@ -70,7 +66,7 @@ public class PitchController {
                 return "redirect:/welcome";
             }
             walletService.processOrder((p.getAmountPerStock()*numStocks), username);
-            
+            equityHoldingService.addEquity(numStocks, username, p.getCompany());
             transaction t = new transaction();
             
             t.setAmountPerStock(p.getAmountPerStock());
@@ -81,7 +77,7 @@ public class PitchController {
             pitchService.updatePitch(p, pitchId);
 
             // entrepreneur wallet updated
-            System.out.println(p.getUserName());
+            // System.out.println(p.getUserName());
             walletService.addMoney((p.getAmountPerStock()*numStocks), p.getUserName());
 
             
