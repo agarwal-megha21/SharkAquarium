@@ -32,7 +32,7 @@ public class OrderDAO {
 
     public void createOrder(order o)
     {
-        String sql = "INSERT INTO order (id, orderId, tickerId, orderType, orderPrice) VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO order (id, orderId, tickerId, orderType, orderPrice) VALUES (?, ?, ?, ?, ?);";
         jt.update(sql, o.getId(), o.getOrderId(), o.getTickerId(), o.getorderType(), o.getOrderPrice());
     }
 }
