@@ -13,7 +13,6 @@ public class EquityHoldingService {
     private EquityHoldingDAO equityHoldingDAO;
 
     public void addEquity(int amount, String userName, String company) {
-
         equityHolding w;
         if(equityHoldingDAO.isEquityExists(userName, company)){
             w = equityHoldingDAO.getHolding(userName, company);
@@ -31,7 +30,7 @@ public class EquityHoldingService {
         equityHoldingDAO.updateHolding(w, w.getId());
     }
 
-    // when i cancel my order
+    // when I cancel my order
     public void recoverHolding(int amount, String userName, String company) {
         equityHolding w = equityHoldingDAO.getHolding(userName, company);
         w.setAvailableQuantity(w.getAvailableQuantity() + amount);
