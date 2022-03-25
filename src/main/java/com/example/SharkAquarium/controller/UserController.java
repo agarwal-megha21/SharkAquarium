@@ -7,9 +7,11 @@ import javax.servlet.http.HttpSession;
 import com.example.SharkAquarium.dao.CustomerDAO;
 import com.example.SharkAquarium.model.pitch;
 import com.example.SharkAquarium.model.userDetails;
+import com.example.SharkAquarium.model.wallet;
 import com.example.SharkAquarium.service.AuthenticateService;
 import com.example.SharkAquarium.service.PitchService;
 import com.example.SharkAquarium.service.UserValidatorService;
+import com.example.SharkAquarium.service.WalletService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,6 +32,8 @@ public class UserController {
     private PitchService pitchService;
     @Autowired
     private CustomerDAO customerDAO;
+    @Autowired
+    private WalletService walletService;
    
     @GetMapping("/customer_profile") 
     public String customer_profile(HttpSession session) {
@@ -43,12 +47,13 @@ public class UserController {
     @PostMapping("/customer_profile")
     public String customer_profile(@ModelAttribute("userDetails") userDetails customer, HttpSession session, RedirectAttributes redir) {
         String username = authenticateService.getCurrentUser(session);
-        customerService.createCustomer(customer, username);
+        customerService.createCustomer(customer, username); 
+        wallet w = new wallet(); 
+        walletService.createWallet(w, username);
         redir.addFlashAttribute("message", "Profile Created Successfully");
         return "redirect:/welcome";
-    }
-    
-     
+    } 
+
     @GetMapping("/welcome")
     public String welcomeUser(HttpSession session, Model model){
         String userName = authenticateService.getCurrentUser(session);

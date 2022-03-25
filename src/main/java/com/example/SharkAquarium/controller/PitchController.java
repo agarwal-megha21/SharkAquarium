@@ -3,13 +3,13 @@ package com.example.SharkAquarium.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession; 
 
-import com.example.SharkAquarium.dao.PitchDAO;
-import com.example.SharkAquarium.dao.TransactionDAO;
 import com.example.SharkAquarium.model.pitch;
 import com.example.SharkAquarium.model.transaction;
 import com.example.SharkAquarium.service.AuthenticateService;
+import com.example.SharkAquarium.service.EquityHoldingService;
 import com.example.SharkAquarium.service.PitchService;
 import com.example.SharkAquarium.service.TransactionService;
+import com.example.SharkAquarium.service.WalletService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,13 +25,13 @@ public class PitchController {
     @Autowired
     private PitchService pitchService;
     @Autowired
-    private PitchDAO pitchDAO;
-    @Autowired
     private AuthenticateService authenticateService;
     @Autowired
-    private TransactionDAO transactionDAO;
-    @Autowired
     private TransactionService transactionService;
+    @Autowired
+    private WalletService walletService;
+    @Autowired
+    private EquityHoldingService equityHoldingService;
 
     @GetMapping("/create_pitch")
     public String create_pitch(){
@@ -48,17 +48,25 @@ public class PitchController {
         System.out.println("Pitch created");
         return "redirect:/welcome"; 
       
-    } 
+    }
+    
     @GetMapping("/pitches/invest/{id}") 
     public String invest(@PathVariable("id")int pitchId, HttpSession session, HttpServletRequest request){
        // System.out.println(pitchId+""); 
         int numStocks = Integer.valueOf(request.getParameter("numberOfStocks"));
         // System.out.println("Number of stocks selected = "+numStocks);
         
-        
         pitch p = pitchService.getPitch(pitchId);
         if(p.getAvailableStocks() >= numStocks){
+            
             String username = authenticateService.getCurrentUser(session);
+           // wallet w = walletService.getWallet(username);
+            if(!walletService.initiateOrder((p.getAmountPerStock()*numStocks), username)){
+                System.out.println("Insufficient Wallet Amount");
+                return "redirect:/welcome";
+            }
+            walletService.processOrder((p.getAmountPerStock()*numStocks), username);
+            equityHoldingService.addEquity(numStocks, username, p.getCompany());
             transaction t = new transaction();
             
             t.setAmountPerStock(p.getAmountPerStock());
@@ -67,6 +75,11 @@ public class PitchController {
             
             p.setAvailableStocks(p.getAvailableStocks()-numStocks);
             pitchService.updatePitch(p, pitchId);
+
+            // entrepreneur wallet updated
+            // System.out.println(p.getUserName());
+            walletService.addMoney((p.getAmountPerStock()*numStocks), p.getUserName());
+
             
         }else
         System.out.println("Transaction failed: please reduce stocks count");

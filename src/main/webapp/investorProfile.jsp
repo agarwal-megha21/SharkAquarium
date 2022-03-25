@@ -15,8 +15,10 @@
                 <link rel="stylesheet" href="assethome/css/Ludens-Users---2-Register.css">
                 <link rel="stylesheet" href="assethome/css/style1.css">
                 <li class=lhiav-item><a class="nav-link" href="logout">Log Out</a></li>
+                <li class=lhiav-item><a class="nav-link" href="wallet">My Wallet</a></li>
                 <li class=lhiav-item><a class="nav-link" href="#sec1">View Pitches</a></li>
-            </head>
+                
+            </head> 
             <section class="register-photo" style="background-size: center;height: 900px; margin-top: 50px;">
                 <div class="form-container"
                     style="margin-top: 100px; align-items: center; margin-left: 150px; margin-right: 800px; width: 800px;">

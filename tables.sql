@@ -49,21 +49,23 @@ CREATE TABLE IF NOT EXISTS transaction
     PRIMARY KEY (id)
 );
 
-CREATE TABLE IF NOT EXISTS stock
+CREATE TABLE IF NOT EXISTS wallet
 (
     id INT NOT NULL AUTO_INCREMENT,
-    stockId INT NOT NULL,
-    stockName VARCHAR(255) NOT NULL,
-    stockPrice DOUBLE NOT NULL,
+    username VARCHAR(255) NOT NULL,
+    totalAmount DOUBLE NOT NULL,
+    availableAmount DOUBLE NOT NULL,
+    FOREIGN KEY(username) REFERENCES user(username) ON DELETE CASCADE,
     PRIMARY KEY (id)
 );
 
-CREATE TABLE IF NOT EXISTS order
+CREATE TABLE IF NOT EXISTS equityHolding
 (
     id INT NOT NULL AUTO_INCREMENT,
-    orderId INT NOT NULL,
-    tickerId INT NOT NULL,
-    orderType VARCHAR(255) NOT NULL,
-    orderPrice DOUBLE NOT NULL,
+    username VARCHAR(255) NOT NULL,
+    company VARCHAR(255) NOT NULL,
+    totalQuantity INT NOT NULL,
+    availableQuantity INT NOT NULL,
+    FOREIGN KEY(username) REFERENCES user(username) ON DELETE CASCADE,
     PRIMARY KEY (id)
 );
