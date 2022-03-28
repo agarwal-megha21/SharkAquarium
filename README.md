@@ -11,7 +11,7 @@
       create database db_sharkAquarium;
       create user '<USER>'@'localhost' identified by '<PASS>';
       grant usage on *.* to '<USER>'@'localhost';
-      grant all priveleges on db_sharkAquarium.* to '<USER>'@'localhost';
+      grant all privileges on db_sharkAquarium.* to '<USER>'@'localhost';
       
       NOTE : Here USER = sharkAquarium and PASS = sharkAquarium;
       
