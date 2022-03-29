@@ -17,8 +17,8 @@ public class OrderService {
         orderDAO.createOrder(p, username, company);
     }
 
-    public void updatePitch(order p, int id) {
-        orderDAO.updatePitch(p, id);
+    public void updateOrder(order p, int id) {
+        orderDAO.updateOrder(p, id);
     } 
 
     public List<order> getOrders(String company, int direction) {

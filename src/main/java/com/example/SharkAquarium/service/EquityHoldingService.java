@@ -22,12 +22,14 @@ public class EquityHoldingService {
             e.setTotalQuantity(0);
             e.setAvailableQuantity(0);
             createHolding(e, userName, company);
-            w = e;
-        }
+            w = e; 
+         }
         
         w.setAvailableQuantity(w.getAvailableQuantity() + amount);
+        //System.out.println(w.getAvailableQuantity()+"");
         w.setTotalQuantity(w.getTotalQuantity() + amount);
-        equityHoldingDAO.updateHolding(w, w.getId());
+        //System.out.println(w.getTotalQuantity()+"");
+        equityHoldingDAO.updateHolding(w, userName, company);
     }
 
     // when I cancel my order
@@ -51,7 +53,7 @@ public class EquityHoldingService {
     }
 
     // someone completes the pre-existing order
-    public void processOrder(int amount, String userName, String company) {
+    public void processHolding(int amount, String userName, String company) {
         equityHolding w = equityHoldingDAO.getHolding(userName, company);
         w.setAvailableQuantity(w.getAvailableQuantity());
         w.setTotalQuantity(w.getTotalQuantity() - amount);
