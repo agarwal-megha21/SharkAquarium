@@ -69,3 +69,17 @@ CREATE TABLE IF NOT EXISTS equityHolding
     FOREIGN KEY(username) REFERENCES user(username) ON DELETE CASCADE,
     PRIMARY KEY (id)
 );
+
+CREATE TABLE IF NOT EXISTS orders
+(
+    id INT NOT NULL AUTO_INCREMENT,
+    username VARCHAR(255) NOT NULL,
+    company VARCHAR(255) NOT NULL,
+    direction INT NOT NULL,
+    quantity INT NOT NULL,
+    price DOUBLE NOT NULL,
+    status INT NOT NULL,
+    FOREIGN KEY(username) REFERENCES user(username) ON DELETE CASCADE,
+    PRIMARY KEY (id)
+);
+

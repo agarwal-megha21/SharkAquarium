@@ -33,33 +33,33 @@ public class OrderDAO {
     };
 
     public void createOrder(order p, String username, String company) {
-        String sql = "INSERT INTO pitch (id, company, userName, direction, price, quantity, status) VALUES (?, ?, ?, ?, ?, ?, ? )";
+        String sql = "INSERT INTO orders (id, company, userName, direction, price, quantity, status) VALUES (?, ?, ?, ?, ?, ?, ? )";
         jt.update(sql, p.getId(), company, username, p.getDirection(), p.getPrice(), p.getQuantity(), p.getStatus());
     }
 
     public order getOrder(int id) {
-        String sql = "SELECT * FROM order WHERE id = ?";
+        String sql = "SELECT * FROM orders WHERE id = ?";
         return jt.queryForObject(sql, orderRowMapper, id);
     }
 
     public List<order> getOrderByCompany(String company, int status){ 
-        String sql = "SELECT * from order WHERE company=? and status=?";
+        String sql = "SELECT * from orders WHERE company=? and status=?";
         return jt.query(sql, orderRowMapper, company, status);
     }
 
     public List<order> getOrderByDirection(int direction, int status) {
-        String sql = "SELECT * from order WHERE direction=? and status=?";
+        String sql = "SELECT * from orders WHERE direction=? and status=?";
         return jt.query(sql, orderRowMapper, direction, status);
     } 
     
     public List<order> getOrders(String company, int direction, int status) {
-        String sql = "SELECT * from order WHERE company=? and direction=? and status=?";
+        String sql = "SELECT * from orders WHERE company=? and direction=? and status=?";
         return jt.query(sql, orderRowMapper, company, direction, status); 
     }
   
-    public void updatePitch(order p, int id) {
+    public void updateOrder(order p, int id) {
 
-        String sql = "UPDATE pitch SET company=?, direction=?, price=?, quantity=?, status=? where id = ?";
+        String sql = "UPDATE orders SET company=?, direction=?, price=?, quantity=?, status=? where id = ?";
         jt.update(sql, p.getCompany(), p.getDirection(), p.getPrice(), p.getQuantity(), p.getStatus(), id);
     }
 

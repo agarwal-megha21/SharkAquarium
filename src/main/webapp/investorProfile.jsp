@@ -5,18 +5,20 @@
             <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 
             <!DOCTYPE html>
-            <html lang="en">
-
+            <html lang="en"> 
+            
             <head>
                 <meta charset="utf-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
                 <title>Investor's Profile Page</title>
                 <link rel="stylesheet" href="assethome/bootstrap/css/bootstrap.min.css">
                 <link rel="stylesheet" href="assethome/css/Ludens-Users---2-Register.css">
-                <link rel="stylesheet" href="assethome/css/style1.css">
+                <link rel="stylesheet" href="assethome/css/style1.css"> 
                 <li class=lhiav-item><a class="nav-link" href="logout">Log Out</a></li>
                 <li class=lhiav-item><a class="nav-link" href="wallet">My Wallet</a></li>
                 <li class=lhiav-item><a class="nav-link" href="#sec1">View Pitches</a></li>
+                <li class=lhiav-item><a class="nav-link" href="createBuyOrder">Create Buy Order</a></li>
+                <li class=lhiav-item><a class="nav-link" href="createSellOrder">Create Sell Order</a></li>
                 
             </head> 
             <section class="register-photo" style="background-size: center;height: 900px; margin-top: 50px;">
@@ -48,7 +50,7 @@
                             <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
                                 <thead>
                                     <tr style="text-align: center;">
-                                        <th>ID</th>
+                                        
                                         <th>Company</th> 
                                         <th>Description</th>
                                         <th>Amount Per Stock</th>
@@ -59,9 +61,7 @@
                                 <tbody>
                                     <c:forEach var="pitch" items="${list}">
                                         <tr style="text-align: center;">
-                                            <td>
-                                                <c:out value="${pitch.id}" />
-                                            </td>
+                                            
                                             <td>
                                                 <c:out value="${pitch.company}" />
                                             </td>

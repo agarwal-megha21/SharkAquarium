@@ -34,7 +34,7 @@ public class EquityHoldingDAO {
         int cnt = jt.queryForObject(sql, Integer.class, username, company);
         return cnt>0;
     }
-
+    
     public void createHolding(equityHolding p, String username, String company) {
         String sql = "INSERT INTO equityHolding (id, username, company, totalQuantity, availableQuantity) VALUES (?, ?, ?, ?, ? )";
         jt.update(sql, p.getId(), username, company, p.getTotalQuantity(), p.getAvailableQuantity());
@@ -48,8 +48,17 @@ public class EquityHoldingDAO {
     public void updateHolding(equityHolding p, int id) {
         String sql = "UPDATE equityHolding SET totalQuantity=?, availableQuantity=? where id=?";
         jt.update(sql, p.getTotalQuantity(), p.getAvailableQuantity(), id);
+    } 
+    
+    public void updateHolding(equityHolding p, String username, String company) {
+        String sql = "UPDATE equityHolding SET totalQuantity=?, availableQuantity=? where username=? and company=?";
+        // System.out.println(p.getAvailableQuantity() + "");
+        // System.out.println(p.getTotalQuantity() + "");
+        // System.out.println(id + "");
+        jt.update(sql, p.getTotalQuantity(), p.getAvailableQuantity(), username, company);
     }
 
+   
     public void deleteHolding(int id) {
         String sql = "DELETE FROM equityHolding WHERE id=?";
         jt.update(sql, id);
