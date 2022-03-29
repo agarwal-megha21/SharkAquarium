@@ -53,7 +53,7 @@ public class EquityHoldingService {
     }
 
     // someone completes the pre-existing order
-    public void processOrder(int amount, String userName, String company) {
+    public void processHolding(int amount, String userName, String company) {
         equityHolding w = equityHoldingDAO.getHolding(userName, company);
         w.setAvailableQuantity(w.getAvailableQuantity());
         w.setTotalQuantity(w.getTotalQuantity() - amount);
