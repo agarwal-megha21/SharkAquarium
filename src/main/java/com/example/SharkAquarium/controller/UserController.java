@@ -8,7 +8,9 @@ import com.example.SharkAquarium.dao.CustomerDAO;
 import com.example.SharkAquarium.model.pitch;
 import com.example.SharkAquarium.model.userDetails;
 import com.example.SharkAquarium.model.wallet;
+import com.example.SharkAquarium.model.equityHolding;
 import com.example.SharkAquarium.service.AuthenticateService;
+import com.example.SharkAquarium.service.EquityHoldingService;
 import com.example.SharkAquarium.service.PitchService;
 import com.example.SharkAquarium.service.UserValidatorService;
 import com.example.SharkAquarium.service.WalletService;
@@ -34,6 +36,8 @@ public class UserController {
     private CustomerDAO customerDAO;
     @Autowired
     private WalletService walletService;
+    @Autowired
+    private EquityHoldingService equityHoldingService;
    
     @GetMapping("/customer_profile") 
     public String customer_profile(HttpSession session) {
@@ -70,6 +74,14 @@ public class UserController {
             model.addAttribute("list", pList);
             return "investorProfile";
         } 
+    }
+
+    @GetMapping("/myStocks")
+    public String fetchEquity(HttpSession session, Model model) {
+        String username = authenticateService.getCurrentUser(session);
+        List<equityHolding> pList = equityHoldingService.getHoldings(username);
+        model.addAttribute("list", pList);
+        return "myStocks";
     }
 }
 

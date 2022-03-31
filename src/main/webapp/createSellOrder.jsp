@@ -16,6 +16,112 @@
                 <link rel="stylesheet" href="assethome/fonts/font-awesome.min.css">
             </head>
 
+            <li class=lhiav-item><a class="nav-link" href="logout">Log Out</a></li>
+            <li class=lhiav-item><a class="nav-link" href="wallet">My Wallet</a></li>
+            <section>
+                <div id="sec1" align="center"
+                    style="background-color: rgba(255,255,255,0.64); margin-left: 100px; margin-right: 100px;">
+                    <br>
+                    <div style="margin-top: 30px;">
+                        <caption>
+                            <h2 class=navbar-brand aria-controls="navbarResponsive" aria-expanded="false"
+                                aria-label="Toggle navigation">Available Buy Orders</h2>
+                        </caption>
+                    </div>
+            
+                    <div class="row" style="margin-left: 50px; margin-right: 50px;">
+                        <div class="col-md-12">
+                            <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                                <thead>
+                                    <tr style="text-align: center;">
+            
+                                        <th>Company</th>
+                                        <th>Price per stock</th>
+                                        <th>Quantity</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <c:forEach var="order" items="${list}">
+                                        <tr style="text-align: center;">
+            
+                                            <td>
+                                                <c:out value="${order.company}" />
+                                            </td>
+                                            <td>$ 
+                                                <c:out value="${order.price}" />
+                                            </td>
+                                            <td>
+                                                <c:out value="${order.quantity}" />
+                                            </td>
+                                            <td>
+                                                <form method="get" action="/orders/buy/${order.id}">
+                                                    <input type="submit" value="Complete Order"></input>
+            
+                                                </form>
+                                            </td>
+            
+                                        </tr>
+                                    </c:forEach>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <br><br>
+                </div>
+            </section>
+
+            <section>
+                <div id="sec1" align="center"
+                    style="background-color: rgba(255,255,255,0.64); margin-left: 100px; margin-right: 100px;">
+                    <br>
+                    <div style="margin-top: 30px;">
+                        <caption>
+                            <h2 class=navbar-brand aria-controls="navbarResponsive" aria-expanded="false"
+                                aria-label="Toggle navigation">My Sell Orders</h2>
+                        </caption>
+                    </div>
+            
+                    <div class="row" style="margin-left: 50px; margin-right: 50px;">
+                        <div class="col-md-12">
+                            <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                                <thead>
+                                    <tr style="text-align: center;">
+            
+                                        <th>Company</th>
+                                        <th>Price per stock</th>
+                                        <th>Quantity</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <c:forEach var="order" items="${mylist}">
+                                        <tr style="text-align: center;">
+            
+                                            <td>
+                                                <c:out value="${order.company}" />
+                                            </td>
+                                            <td>$
+                                                <c:out value="${order.price}" />
+                                            </td>
+                                            <td>
+                                                <c:out value="${order.quantity}" />
+                                            </td>
+                                            <td>
+                                                <form method="get" action="/orders/delete/sell/${order.id}">
+                                                    <input type="submit" value="Delete Order"></input>
+            
+                                                </form>
+                                            </td>
+            
+                                        </tr>
+                                    </c:forEach>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <br><br>
+                </div>
+            </section>
+
             <section class="register-photo" style="background-size: center;height: 900px; margin-top: 50px;">
                 <div class="form-container"
                     style="margin-top: 100px; align-items: center; margin-left: 150px; margin-right: 800px; width: 800px;">

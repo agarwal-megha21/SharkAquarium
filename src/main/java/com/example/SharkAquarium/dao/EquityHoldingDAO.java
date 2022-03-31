@@ -2,6 +2,7 @@ package com.example.SharkAquarium.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 import com.example.SharkAquarium.model.equityHolding;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +44,11 @@ public class EquityHoldingDAO {
     public equityHolding getHolding(String username, String company) {
         String sql = "SELECT * FROM equityHolding WHERE username = ? and company=?";
         return jt.queryForObject(sql, HoldingRowMapper, username, company);
+    }
+
+    public List<equityHolding> getHoldings(String username) {
+        String sql = "SELECT * FROM equityHolding WHERE username = ? ";
+        return jt.query(sql, HoldingRowMapper, username);
     }
 
     public void updateHolding(equityHolding p, int id) {
