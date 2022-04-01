@@ -8,6 +8,7 @@ public class order {
     private String username;
     private double price; // per stock basis
     private int status; // 1 active 0 cancelled 2 completed
+    private String usercompleted;
 
     public int getId() {
         return id;
@@ -30,6 +31,9 @@ public class order {
     public int getStatus() {
         return status;
     }
+    public String getUsercompleted(){
+        return usercompleted;
+    }
 
     public void setId(int id) {
         this.id = id;
@@ -51,5 +55,8 @@ public class order {
     }
     public void setStatus(int status) {
         this.status = status;
+    }
+    public void setUsercompleted(String usercompleted) {
+        this.usercompleted = usercompleted;
     }
 }

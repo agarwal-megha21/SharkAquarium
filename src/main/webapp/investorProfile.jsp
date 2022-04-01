@@ -19,7 +19,8 @@
                 <li class=lhiav-item><a class="nav-link" href="#sec1">View Pitches</a></li>
                 <li class=lhiav-item><a class="nav-link" href="createBuyOrder">Create Buy Order</a></li>
                 <li class=lhiav-item><a class="nav-link" href="createSellOrder">Create Sell Order</a></li>
-                
+                <li class=lhiav-item><a class="nav-link" href="myStocks">My Holdings</a></li>
+
             </head> 
             <section class="register-photo" style="background-size: center;height: 900px; margin-top: 50px;">
                 <div class="form-container"

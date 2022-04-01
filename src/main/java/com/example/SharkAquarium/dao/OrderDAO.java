@@ -27,6 +27,7 @@ public class OrderDAO {
             p.setQuantity(rs.getInt("quantity"));
             p.setPrice(rs.getDouble("price"));
             p.setStatus(rs.getInt("status"));
+            p.setUsercompleted(rs.getString("usercompleted"));
             // p.setTimestamp(rs.getLong("timestamp"));
             return p;
         }
@@ -42,25 +43,29 @@ public class OrderDAO {
         return jt.queryForObject(sql, orderRowMapper, id);
     }
 
-    public List<order> getOrderByCompany(String company, int status){ 
-        String sql = "SELECT * from orders WHERE company=? and status=?";
-        return jt.query(sql, orderRowMapper, company, status);
+    public List<order> getOrderByCompany(String company, int status, String username){ 
+        String sql = "SELECT * from orders WHERE company=? and status=? and username<>?";
+        return jt.query(sql, orderRowMapper, company, status, username);
     }
 
-    public List<order> getOrderByDirection(int direction, int status) {
-        String sql = "SELECT * from orders WHERE direction=? and status=?";
-        return jt.query(sql, orderRowMapper, direction, status);
+    public List<order> getOrderByDirection(int direction, int status, String username) {
+        String sql = "SELECT * from orders WHERE direction=? and status=? and username<>?";
+        return jt.query(sql, orderRowMapper, direction, status, username);
     } 
     
-    public List<order> getOrders(String company, int direction, int status) {
-        String sql = "SELECT * from orders WHERE company=? and direction=? and status=?";
-        return jt.query(sql, orderRowMapper, company, direction, status); 
+    public List<order> getOrders(String company, int direction, int status, String username) {
+        String sql = "SELECT * from orders WHERE company=? and direction=? and status=? and username<>?";
+        return jt.query(sql, orderRowMapper, company, direction, status, username); 
+    }
+
+    public List<order> getMyOrders(int direction, int status, String username) {
+        String sql = "SELECT * from orders WHERE direction=? and status=? and username=?";
+        return jt.query(sql, orderRowMapper, direction, status, username);
     }
   
     public void updateOrder(order p, int id) {
-
-        String sql = "UPDATE orders SET company=?, direction=?, price=?, quantity=?, status=? where id = ?";
-        jt.update(sql, p.getCompany(), p.getDirection(), p.getPrice(), p.getQuantity(), p.getStatus(), id);
+        String sql = "UPDATE orders SET company=?, direction=?, price=?, quantity=?, status=?, usercompleted=? where id = ?";
+        jt.update(sql, p.getCompany(), p.getDirection(), p.getPrice(), p.getQuantity(), p.getStatus(), p.getUsercompleted(), id);
     }
 
 }

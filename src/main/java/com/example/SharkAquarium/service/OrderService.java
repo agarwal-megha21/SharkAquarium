@@ -18,22 +18,32 @@ public class OrderService {
     }
 
     public void updateOrder(order p, int id) {
-        orderDAO.updateOrder(p, id);
+        orderDAO.updateOrder(p, id); 
     } 
 
-    public List<order> getOrders(String company, int direction) {
-        return orderDAO.getOrders(company, direction, 1);
+    public List<order> getOrders(String company, int direction, String username) {
+        return orderDAO.getOrders(company, direction, 1, username);
     }
     
-    public List<order> getOrders(String company) {
-        return orderDAO.getOrderByCompany(company, 1);
+    public List<order> getOrders(String company, String username) {
+        return orderDAO.getOrderByCompany(company, 1, username);
     }
     
-    public List<order> getOrders(int direction) {
-        return orderDAO.getOrderByDirection(direction, 1);
+    public List<order> getOrders(int direction, String username) {
+        return orderDAO.getOrderByDirection(direction, 1, username);
+    }
+
+    public List<order> getMyOrders(int direction, String username) {
+        return orderDAO.getMyOrders(direction, 1, username);
     }
 
     public order getOrder(int id){
         return orderDAO.getOrder(id);
+    }
+
+    public void cancelOrder(int id){
+        order o = getOrder(id);
+        o.setStatus(0);
+        orderDAO.updateOrder(o, id);
     }
 }

@@ -1,5 +1,7 @@
 package com.example.SharkAquarium.service;
 
+import java.util.List;
+
 import com.example.SharkAquarium.dao.EquityHoldingDAO;
 import com.example.SharkAquarium.model.equityHolding;
 
@@ -70,5 +72,9 @@ public class EquityHoldingService {
 
     public equityHolding getHolding(String username, String company) {
         return equityHoldingDAO.getHolding(username, company);
+    }
+
+    public List<equityHolding> getHoldings(String username) {
+        return equityHoldingDAO.getHoldings(username);
     }
 }

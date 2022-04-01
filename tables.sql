@@ -79,6 +79,7 @@ CREATE TABLE IF NOT EXISTS orders
     quantity INT NOT NULL,
     price DOUBLE NOT NULL,
     status INT NOT NULL,
+    usercompleted VARCHAR(255),
     FOREIGN KEY(username) REFERENCES user(username) ON DELETE CASCADE,
     PRIMARY KEY (id)
 );

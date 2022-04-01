@@ -13,6 +13,6 @@ public class SharkAquariumApplication {
         return bCryptPasswordEncoder;
     } 
     public static void main(String[] args) {
-		SpringApplication.run(SharkAquariumApplication.class, args);
-    } 
-}
+		  SpringApplication.run(SharkAquariumApplication.class, args);
+    }
+} 

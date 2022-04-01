@@ -86,8 +86,4 @@ public class PitchController {
          return "redirect:/welcome";
         
     }
-    
-    
-    
-    
 }
