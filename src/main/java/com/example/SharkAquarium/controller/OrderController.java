@@ -65,6 +65,7 @@ public class OrderController {
         equityHoldingService.addEquity(p.getQuantity(), username, p.getCompany());
         walletService.addMoney((p.getPrice() * p.getQuantity()), p.getUsername()); 
         p.setStatus(2);
+        p.setUsercompleted(username);
         equityHoldingService.processHolding(p.getQuantity(), p.getUsername(), p.getCompany());
         orderService.updateOrder(p, p.getId());
         return "redirect:/welcome";
@@ -115,6 +116,7 @@ public class OrderController {
         walletService.addMoney((p.getPrice() * p.getQuantity()), username);
         equityHoldingService.addEquity(p.getQuantity(), p.getUsername(), p.getCompany()); 
         p.setStatus(2);
+        p.setUsercompleted(username);
         walletService.processOrder((p.getQuantity()*p.getPrice()), p.getUsername());
         orderService.updateOrder(p, p.getId());
         return "redirect:/welcome";

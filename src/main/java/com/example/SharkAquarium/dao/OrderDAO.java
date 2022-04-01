@@ -27,6 +27,7 @@ public class OrderDAO {
             p.setQuantity(rs.getInt("quantity"));
             p.setPrice(rs.getDouble("price"));
             p.setStatus(rs.getInt("status"));
+            p.setUsercompleted(rs.getString("usercompleted"));
             // p.setTimestamp(rs.getLong("timestamp"));
             return p;
         }
@@ -63,9 +64,8 @@ public class OrderDAO {
     }
   
     public void updateOrder(order p, int id) {
-
-        String sql = "UPDATE orders SET company=?, direction=?, price=?, quantity=?, status=? where id = ?";
-        jt.update(sql, p.getCompany(), p.getDirection(), p.getPrice(), p.getQuantity(), p.getStatus(), id);
+        String sql = "UPDATE orders SET company=?, direction=?, price=?, quantity=?, status=?, usercompleted=? where id = ?";
+        jt.update(sql, p.getCompany(), p.getDirection(), p.getPrice(), p.getQuantity(), p.getStatus(), p.getUsercompleted(), id);
     }
 
 }
