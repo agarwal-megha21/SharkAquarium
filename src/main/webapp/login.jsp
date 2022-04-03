@@ -65,8 +65,8 @@
   </header><!-- End Header -->
 
   <!-- The form -->
-  <section class="register-photo" style=" margin: auto;">
-    <div class="form-container" style="margin-top: 100px; align-items: center; margin-left: 150px; margin-right: 800px; width: 800px;" >
+  <section class="container">
+    <div class="form-container" style="margin-top: 100px; align-items: left; margin-left: 0px; margin-right: 800px; width: 800px;" >
           <form method="POST" action="${contextPath}/login" class="form-signin" style="margin-top: 100px;margin-right: 0px; background-color: rgba(255,255,255,0.64); margin-left: 500px;">
             <h2 class="text-center" style="color:black;"><strong>Log In</strong></h2>
             <div class="row form-group">
@@ -91,7 +91,7 @@
               <button class="btn btn-lg btn-primary btn-block" type="submit">Sign In</button>
             </div>
             <div class="row form-group" style="margin-top: 20px;">
-              <a class="already" style="color:black;" type="button" onclick="window.location='register'">Don't have an account? Register Here</a>
+              <a class="already" style="color:blue;" type="button" onclick="window.location='register'">Don't have an account? Register Here</a>
             </div>
           </form>
       </div>
