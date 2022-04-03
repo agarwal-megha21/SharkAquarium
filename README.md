@@ -19,10 +19,11 @@
       done using the file tables.sql from the repository.
 
 ## About Project
-     The entrepreneur can submit their business ideas on the platform. The investor
-     can review the pitches, invest in them, and can get a return as a percentage of
-     the venture’s equity. At a later point, the investor can sell the stocks owned, 
-     on the platform itself; as well as invest in equity of other ventures too. 
+     A crowdfunded business support platform, wherein, the entrepreneur can submit 
+     their business ideas on the platform. The investor can review the pitches,
+     invest in them, and can get a return as a percentage of the venture’s equity. 
+     At a later point, the investor can sell the stocks owned, on the platform itself;
+     as well as invest in equity of other ventures too. 
      This contributes to the functioning of a stock exchange platform. 
 
      * Entrepreneurs:
