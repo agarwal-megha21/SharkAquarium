@@ -10,10 +10,10 @@
                 <head>
                     <meta charset="utf-8">
                     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-                  
-                    <title>FlexStart Bootstrap Template - Index</title>
+
+                    <title>Profile</title>
                     <meta content="" name="description">
-                  
+
                     <meta content="" name="keywords">
                   
                     <!-- Favicons -->
@@ -33,7 +33,7 @@
                   
                     <!-- Template Main CSS File -->
                     <link href="assets/css/style.css" rel="stylesheet">
-                  
+
                     <!-- =======================================================
                     * Template Name: FlexStart - v1.9.0
                     * Template URL: https://bootstrapmade.com/flexstart-bootstrap-startup-template/
@@ -48,16 +48,14 @@
                     <header id="header" class="header fixed-top">
                         <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
-                        <a href="/" class="logo d-flex align-items-center">
+                        <a href="#" class="logo d-flex align-items-center">
                             <img src="assets/img/logo.png" alt="">
                             <span>Shark Aquarium</span>
                         </a>
 
                         <nav id="navbar" class="navbar">
                             <ul>
-                            <!-- <li class=lhiav-item><a class="nav-link" href="logout">Log Out</a></li> -->
                             <li class=lhiav-item><a class="nav-link" href="wallet">My Wallet</a></li>
-                            <li class=lhiav-item><a class="nav-link" href="#sec1">View Pitches</a></li>
                             <li class=lhiav-item><a class="nav-link" href="createBuyOrder">Create Buy Order</a></li>
                             <li class=lhiav-item><a class="nav-link" href="createSellOrder">Create Sell Order</a></li>
                             <li class=lhiav-item><a class="nav-link" href="myStocks">My Holdings</a></li>
@@ -93,7 +91,7 @@
                                         aria-label="Toggle navigation">Available Pitches</h2>
                                 </caption>
                             </div>
-                    
+
                             <div class="row" style="margin-left: 50px; margin-right: 50px;">
                                 <div class="col-md-12">
                                     <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
@@ -103,7 +101,7 @@
                                                 <th>Company</th>
                                                 <th>Description</th>
                                                 <th>Amount Per Stock</th>
-                                                <th>Number Of Stocks Available</th> 
+                                                <th>Number Of Stocks Available</th>
                                                 <th>Enter number of Stocks</th>
                                             </tr>
                                         </thead>
