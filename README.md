@@ -1,9 +1,15 @@
 # SharkAquarium
 
 ## Getting Started
+
+### Dependencies <br>
+
+* Java : Follow the instructions [here](https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html#A1097144) to install Java
+* Maven : Download [Maven](https://maven.apache.org/download.cgi) and follow the installation instructions [here](https://maven.apache.org/install.html)
+* MySQL : Installa using these [instructions](https://dev.mysql.com/doc/mysql-installation-excerpt/5.7/en/binary-installation.html) 
    
 ### Installation
-    git clone https://github.com/agarwal-megha21/SharkAquarium.git
+     git clone https://github.com/agarwal-megha21/SharkAquarium.git
 
 ### Setup the database<br>
 
@@ -17,6 +23,13 @@
       
       Once the database is setup, We need to create tables in them which can be
       done using the file tables.sql from the repository.
+
+### Run the code
+
+```
+mvn compile
+mvn spring-boot:run
+```
 
 ## About Project
      A crowdfunded business support platform, wherein, the entrepreneur can submit 
