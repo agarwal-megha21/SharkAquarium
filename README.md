@@ -6,7 +6,7 @@
 
 * Java : Follow the instructions [here](https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html#A1097144) to install Java
 * Maven : Download [Maven](https://maven.apache.org/download.cgi) and follow the installation instructions [here](https://maven.apache.org/install.html)
-* MySQL : Installa using these [instructions](https://dev.mysql.com/doc/mysql-installation-excerpt/5.7/en/binary-installation.html) 
+* MySQL : Install using these [instructions](https://dev.mysql.com/doc/mysql-installation-excerpt/5.7/en/binary-installation.html) 
    
 ### Installation
      git clone https://github.com/agarwal-megha21/SharkAquarium.git
