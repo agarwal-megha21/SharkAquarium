@@ -47,7 +47,6 @@ public class PitchController {
         System.out.println(p.getCompany());
         System.out.println("Pitch created");
         return "redirect:/welcome"; 
-      
     }
     
     @GetMapping("/pitches/invest/{id}") 

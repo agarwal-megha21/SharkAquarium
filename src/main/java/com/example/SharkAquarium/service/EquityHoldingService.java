@@ -50,7 +50,7 @@ public class EquityHoldingService {
             equityHoldingDAO.updateHolding(w, w.getId());
             return true;
         } else
-            System.out.println("Insufficient Available Balance");
+            System.out.println("Insufficient Available Holding");
         return false;
     }
 

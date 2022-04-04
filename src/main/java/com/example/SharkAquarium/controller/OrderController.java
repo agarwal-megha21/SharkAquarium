@@ -97,7 +97,7 @@ public class OrderController {
         p.setStatus(1); 
         String username = authenticateService.getCurrentUser(session);
         // check available equity for company 
-        if(equityHoldingService.initiateHolding(p.getQuantity(), username, p.getCompany()));
+        if(equityHoldingService.initiateHolding(p.getQuantity(), username, p.getCompany()))
             orderService.createOrder(p, username, p.getCompany());
         return "redirect:/welcome";
     }
@@ -107,8 +107,8 @@ public class OrderController {
         System.out.println (id+"");
         order p = orderService.getOrder(id);
         String username = authenticateService.getCurrentUser(session);
-        
-        if (!equityHoldingService.initiateHolding(p.getQuantity(), username, p.getCompany())) {
+        boolean val = equityHoldingService.initiateHolding(p.getQuantity(), username, p.getCompany());
+        if (!val) {
             System.out.println("Insufficient holdings available"); 
             return "redirect:/welcome"; 
         } 

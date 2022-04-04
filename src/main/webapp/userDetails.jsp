@@ -43,7 +43,7 @@
   <body>
 
     <section class="container">
-        <div class="form-container" style="margin-top: 100px; align-items: center; margin-left: 150px; margin-right: 800px; width: 800px;" >
+        <div class="form-container" style="margin-top: 100px; align-items: center; margin-left: 150px; margin-right: 1200px; width: 800px;" >
           <form action="/customer_profile" model="customerDetails" method = "post" style="background-color: rgba(255,255,255,0.64);">
             <div class="row form-group" style="margin-top: 10px;">
             </div>

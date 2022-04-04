@@ -87,8 +87,8 @@
                             <br>
                             <div style="margin-top: 30px;">
                                 <caption>
-                                    <h2 class=navbar-brand aria-controls="navbarResponsive" aria-expanded="false"
-                                        aria-label="Toggle navigation">Available Pitches</h2>
+                                    <h2 style="text-align: center;" class=navbar-brand aria-controls="navbarResponsive" aria-expanded="false"
+                                        aria-label="Toggle navigation">Pitch Aquascape</h2>
                                 </caption>
                             </div>
 

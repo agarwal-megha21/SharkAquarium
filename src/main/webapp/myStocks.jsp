@@ -72,10 +72,10 @@
                         <div style="background-color: rgba(255,255,255,0.64); margin-left: 100px; margin-right: 100px;">
                             <br>
                             <div style="margin-top: 30px;">
-                                <caption>
+                                <!-- <caption>
                                     <h2 class=navbar-brand aria-controls="navbarResponsive" aria-expanded="false"
                                         aria-label="Toggle navigation">Available Pitches</h2>
-                                </caption>
+                                </caption> -->
                             </div>
 
                             <div class="row" style="margin-left: 50px; margin-right: 50px;">
@@ -83,7 +83,7 @@
                                     <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
                                         <thead>
                                             <tr style="text-align: center;">
-                                                <th>Company</th>
+                                                <th>Company Name</th>
                                                 <th>Total Stocks</th>
                                                 <th>Available Stocks</th>
                                             </tr>

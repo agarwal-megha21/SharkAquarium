@@ -57,8 +57,11 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-6 d-flex flex-column justify-content-center">
-          <h1 data-aos="fade-up">Alpha Beta Gamma Delta</h1>
-          <h2 data-aos="fade-up" data-aos-delay="400">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </h2>
+          <h1 data-aos="fade-up">A Crowdsourcing Venture Fund Capital</h1>
+          <h2 data-aos="fade-up" data-aos-delay="400">Modeled after the famous venture capital show Shark Tank,
+             <b>Shark Aquarium</b> is a platform that 
+            allows an entrepreneur to propose their pitch
+           and crowdsource capital from investors to start their business.</h2>
           <div data-aos="fade-up" data-aos-delay="600">
             <div class="text-center text-lg-start">
               <a href="register" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">

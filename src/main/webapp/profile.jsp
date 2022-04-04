@@ -85,8 +85,8 @@
                 <br>
                 <div style="margin-top: 30px;">
                     <caption>
-                        <h2 class=navbar-brand aria-controls="navbarResponsive" aria-expanded="false"
-                            aria-label="Toggle navigation">Available Pitches</h2>
+                        <h2 style="text-align: center;" class=navbar-brand aria-controls="navbarResponsive" aria-expanded="false"
+                            aria-label="Toggle navigation">My Pitches</h2>
                     </caption>
                 </div>
 
@@ -99,8 +99,9 @@
                                     <th>Company</th>
                                     <th>Description</th>
                                     <th>Amount Per Stock</th>
+                                    <th>Total Stocks </th>
                                     <th>Number Of Stocks Available</th>
-                                    <th>Enter number of Stocks</th>
+                                    <!-- <th>Enter number of Stocks</th> -->
                                 </tr>
                             </thead>
                             <tbody>
@@ -117,14 +118,17 @@
                                         </td>
                                         <td>
                                             <c:out value="${pitch.availableStocks}" />
-                                        </td> 
-                                        <td> 
+                                        </td>
+                                        <td>
+                                            <c:out value="${pitch.numberOfStocks}" />
+                                        </td>
+                                        <!-- <td> 
                                         <form  method="get" action="/pitches/invest/${pitch.id}">
                                             <input type="text" id="numberOfStocks" name="numberOfStocks" >
                                             <input type="submit" value="Invest" ></input>
 
                                         </form> 
-                                        </td>
+                                        </td> -->
                                         
                                     </tr>
                                 </c:forEach>
