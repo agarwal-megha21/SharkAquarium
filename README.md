@@ -15,6 +15,7 @@ A crowdfunded business support platform, wherein, the entrepreneur can submit th
 * JDK kit : Version 10 or above. Follow the instructions [here](https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html#A1097144) to install Java
 * Maven : Download [Maven](https://maven.apache.org/download.cgi) and follow the installation instructions [here](https://maven.apache.org/install.html)
 * MySQL : Version 7 or above using these [instructions](https://dev.mysql.com/doc/refman/8.0/en/installing.html). 
+* SpringBoot: Use [these](https://docs.spring.io/spring-boot/docs/current/reference/html/getting-started.html#getting-started.installing) instructions.
    
 ### Installation
   * Install the above dependencies.
