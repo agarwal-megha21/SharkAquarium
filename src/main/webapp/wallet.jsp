@@ -7,7 +7,6 @@
             <!DOCTYPE html>
             <html lang="en">
 
-
             <head>
                 <meta charset="utf-8">
                 <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -65,7 +64,6 @@
                     </div>
                 </header><!-- End Header -->
 
-
                 <section class="container">
                     <div class="form-container" style="margin-top: 100px; align-items: center; margin-left: 150px; margin-right: 800px; width: 800px;">
                         <h4>Total Balance: ${wallet.totalAmount}</h4>
@@ -77,7 +75,10 @@
                             <button type="submit" class="btn btn-success btn-block"
                                             style="color: white;">Add Money</button>
                         </form>
+                        <br>
+                        <div class="alert ${error != null ? 'alert-success' : ''}">${error}</div>
                     </div>
+                    
                 </section>
 
                 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>

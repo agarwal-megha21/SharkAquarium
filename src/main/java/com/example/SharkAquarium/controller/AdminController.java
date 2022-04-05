@@ -47,7 +47,7 @@ public class AdminController {
     public String submitForm(Model model, @ModelAttribute("userForm") user userForm, HttpSession session, BindingResult bindingResult, RedirectAttributes redir) {
         String username = userForm.getUsername();
         if(authenticateService.findByUsername(username) != null) {
-            model.addAttribute("message", "This username has already been taken");
+            model.addAttribute("error", "This username is already taken");
             return "register";
         }
         userValidator.validate(userForm, bindingResult);
@@ -62,10 +62,10 @@ public class AdminController {
     @GetMapping("/login")
     public String login(Model model, HttpSession session, String error, String logout) {
         if (error != null)
-            model.addAttribute("error", "Your username and password is invalid.");
+            model.addAttribute("error", "Your username or password is invalid.");
 
         if (logout != null)
-            model.addAttribute("message", "You have been logged out successfully.");
+            model.addAttribute("error", "You have been logged out successfully.");
 
 		if (authenticateService.isAuthenticated(session)) {
 			return "redirect:/customer_profile";
@@ -90,7 +90,7 @@ public class AdminController {
 		} catch (Exception e) {
         }
         model.addAttribute("user", userForm);
-		redir.addFlashAttribute("message", "Invalid login credentials");
+		redir.addFlashAttribute("error", "Invalid login credentials");
         return "redirect:/login";
     } 
 

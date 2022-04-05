@@ -62,17 +62,22 @@ public class OrderController {
         // checks available money
         if(walletService.initiateOrder(p.getPrice()*p.getQuantity(), username))
             orderService.createOrder(p, username, p.getCompany());
-        return "redirect:/welcome";
+        else{
+            redir.addFlashAttribute("error", "Insufficient funds available");
+            return "redirect:/createBuyOrder";
+        }
+        return "redirect:/createBuyOrder";
     }
 
     @GetMapping("/orders/sell/{id}")
-    public String completeSellOrder(@PathVariable("id")int id, HttpSession session) {
+    public String completeSellOrder(@PathVariable("id")int id, HttpSession session, RedirectAttributes redir) {
         order p = orderService.getOrder(id);
         // System.out.println(id + "");
         String username = authenticateService.getCurrentUser(session);
         if (!walletService.initiateOrder((p.getPrice() * p.getQuantity()), username)) {
-            System.out.println("Insufficient Wallet Amount");
-            return "redirect:/welcome";
+            // System.out.println("Insufficient Wallet Amount");
+            redir.addFlashAttribute("error", "Insufficient Wallet Amount");
+            return "redirect:/createBuyOrder";
         }
         walletService.processOrder((p.getPrice() * p.getQuantity()), username);
         equityHoldingService.addEquity(p.getQuantity(), username, p.getCompany());
@@ -81,7 +86,8 @@ public class OrderController {
         p.setUsercompleted(username);
         equityHoldingService.processHolding(p.getQuantity(), p.getUsername(), p.getCompany());
         orderService.updateOrder(p, p.getId());
-        return "redirect:/welcome";
+        redir.addFlashAttribute("message", "Order Completed");
+        return "redirect:/createBuyOrder";
     }
 
     @GetMapping("/orders/delete/buy/{id}")
@@ -119,18 +125,23 @@ public class OrderController {
         // check available equity for company 
         if(equityHoldingService.initiateHolding(p.getQuantity(), username, p.getCompany()))
             orderService.createOrder(p, username, p.getCompany());
-        return "redirect:/welcome";
+        else{
+            redir.addFlashAttribute("error", "Insufficient equity available");
+            return "redirect:/createSellOrder";
+        }
+    
+        return "redirect:/createSellOrder";
     }
 
     @GetMapping("/orders/buy/{id}")
-    public String completeBuyOrder(@PathVariable("id")int id, HttpSession session) {
+    public String completeBuyOrder(@PathVariable("id")int id, HttpSession session, RedirectAttributes redir) {
         System.out.println (id+"");
         order p = orderService.getOrder(id);
         String username = authenticateService.getCurrentUser(session);
         boolean val = equityHoldingService.initiateHolding(p.getQuantity(), username, p.getCompany());
         if (!val) {
-            System.out.println("Insufficient holdings available"); 
-            return "redirect:/welcome"; 
+            redir.addFlashAttribute("error", "Insufficient equity available");
+            return "redirect:/createSellOrder"; 
         } 
         equityHoldingService.processHolding(p.getQuantity(), username, p.getCompany());
         walletService.addMoney((p.getPrice() * p.getQuantity()), username);
@@ -139,7 +150,8 @@ public class OrderController {
         p.setUsercompleted(username);
         walletService.processOrder((p.getQuantity()*p.getPrice()), p.getUsername());
         orderService.updateOrder(p, p.getId());
-        return "redirect:/welcome";
+        redir.addFlashAttribute("message", "Order Successful");
+        return "redirect:/createSellOrder";
     } 
 
     @GetMapping("/orders/delete/sell/{id}")
