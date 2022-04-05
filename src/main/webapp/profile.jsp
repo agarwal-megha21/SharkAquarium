@@ -196,10 +196,10 @@
                                             <c:out value="${pitch.amountPerStock}" />
                                         </td>
                                         <td>
-                                            <c:out value="${pitch.availableStocks}" />
+                                            <c:out value="${pitch.numberOfStocks}" />
                                         </td>
                                         <td>
-                                            <c:out value="${pitch.numberOfStocks}" />
+                                            <c:out value="${pitch.availableStocks}" />
                                         </td>
                                         <!-- <td> 
                                         <form  method="get" action="/pitches/invest/${pitch.id}">
