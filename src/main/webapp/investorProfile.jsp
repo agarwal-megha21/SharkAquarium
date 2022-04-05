@@ -173,10 +173,18 @@
                                     <h1 style="text-align: center; align-content: center; color: blue;" data-aos="fade-up">Pitch Aquascape</h1>
                             </caption>
                             <br>
+                            
                         </div>
 
                         <div id="sec1" class="row" style="margin-left: 50px; margin-right: 50px;">
+                            <br>
+                            <div style="text-align: center; align-content: center" class="alert ${error != null ? 'alert-danger' : ''}">${error}
+                            </div>
+                            <br>
+                            <div style="text-align: center; align-content: center" class="alert ${message != null ? 'alert-success' : ''}">
+                                ${message}</div>
                             <div class="col-md-12">
+
                                 <table id="example" class="table table-striped table-bordered" cellspacing="0"
                                     width="100%">
                                     <thead>

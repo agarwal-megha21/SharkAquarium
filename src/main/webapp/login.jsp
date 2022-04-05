@@ -73,10 +73,6 @@
               <label style="color:black;" class="col-form-label" for="name-input-field">Username</label>
           </div>
             <div class="row form-group" >
-              <div class="form-group ${error != null ? 'has-error' : ''}">
-                <span>${message}</span>
-              </div>
-
               <input name="username" type="username" class="form-control" placeholder="Username" autofocus="true"/>
             </div>
             <div class="row form-group" style="margin-top: 20px;">
@@ -84,9 +80,11 @@
           </div>
             <div class="row form-group">
               <input name="password" type="password" class="form-control" placeholder="Password"/>
-            <span>${error}</span>
+            
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
             </div>
+            <br>
+            <div class="alert ${error != null ? 'alert-danger' : ''}">${error}</div>
             <div class="row form-group" style="margin-top: 20px;">
               <button class="btn btn-lg btn-primary btn-block" type="submit">Sign In</button>
             </div>

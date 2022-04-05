@@ -84,7 +84,10 @@
                                 <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
                                     <thead>
                                         <tr style="text-align: center;">
-
+                                            <br>
+                                                <div class="alert ${message != null ? 'alert-success' : ''}">${message}</div>
+                                                <br>
+                                                <div class="alert ${error != null ? 'alert-danger' : ''}">${error}</div>
                                             <th>Company</th>
                                             <th>Price per stock</th>
                                             <th>Quantity</th>

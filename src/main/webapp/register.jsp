@@ -65,11 +65,10 @@
                         <spring:bind path="username">
                             <form:input type="text" path="username" class="form-control" placeholder="Username" autofocus="true"></form:input>
                             <form:errors path="username"></form:errors>
-                            </div>
-                        </spring:bind>
-                        <div class="form-group ${error != null ? 'has-error' : ''}">
-                            <span>${message}</span>
                     </div>
+                    </spring:bind>
+                    <br>
+                    <div class="alert ${error != null ? 'alert-danger' : ''}">${error}</div>
 
                     <div class="row form-group" style="margin-top: 20px;">
                         <label style="color:black;" class="col-form-label" for="password-input-field">Password </label>

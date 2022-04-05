@@ -50,7 +50,7 @@ public class PitchController {
     }
     
     @GetMapping("/pitches/invest/{id}") 
-    public String invest(@PathVariable("id")int pitchId, HttpSession session, HttpServletRequest request){
+    public String invest(@PathVariable("id")int pitchId, HttpSession session, HttpServletRequest request, RedirectAttributes redir){
        // System.out.println(pitchId+""); 
         int numStocks = Integer.valueOf(request.getParameter("numberOfStocks"));
         // System.out.println("Number of stocks selected = "+numStocks);
@@ -62,6 +62,7 @@ public class PitchController {
            // wallet w = walletService.getWallet(username);
             if(!walletService.initiateOrder((p.getAmountPerStock()*numStocks), username)){
                 System.out.println("Insufficient Wallet Amount");
+                redir.addFlashAttribute("error", "Insufficient Wallet Amount");
                 return "redirect:/welcome";
             }
             walletService.processOrder((p.getAmountPerStock()*numStocks), username);
@@ -78,10 +79,13 @@ public class PitchController {
             // entrepreneur wallet updated
             // System.out.println(p.getUserName());
             walletService.addMoney((p.getAmountPerStock()*numStocks), p.getUserName());
-
+            redir.addFlashAttribute("message", "Investment Successful");
             
-        }else
-        System.out.println("Transaction failed: please reduce stocks count");
+        }else{
+            System.out.println("Transaction failed: please reduce stocks count");
+            redir.addFlashAttribute("error", "Please reduce stocks count");
+        }
+        
          return "redirect:/welcome";
         
     }
