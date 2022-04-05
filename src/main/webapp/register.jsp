@@ -58,17 +58,18 @@
             <div class="form-container" style="align-items: left; width: 800px;" >
                 <form:form method="POST" modelAttribute="userForm" class="form-signin" style=" background-color: rgba(255,255,255,0.64); margin-left: 500px;">
                     <h2 class="text-center" style="color:black;"><strong>Create Your Account</strong></h2>
+                    <div class="alert ${error != null ? 'alert-danger' : ''}">${error}</div>
                     <div class="row form-group">
                         <label style="color:black;" class="col-form-label" for="name-input-field">Username</label>
                     </div>
+                    
                     <div class="row form-group">
                         <spring:bind path="username">
                             <form:input type="text" path="username" class="form-control" placeholder="Username" autofocus="true"></form:input>
                             <form:errors path="username"></form:errors>
                     </div>
                     </spring:bind>
-                    <br>
-                    <div class="alert ${error != null ? 'alert-danger' : ''}">${error}</div>
+                    
 
                     <div class="row form-group" style="margin-top: 20px;">
                         <label style="color:black;" class="col-form-label" for="password-input-field">Password </label>
