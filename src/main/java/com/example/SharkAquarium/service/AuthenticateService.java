@@ -44,6 +44,10 @@ public class AuthenticateService {
 		return userDAO.getRole(username);
 	}
 
+    public user findByUsername(String username) {
+        return userDAO.findByUsername(username);
+    }
+
     public Boolean checkCredentials(String username, String password) {
         user user = userDAO.findByUsername(username);
         if(bCryptPasswordEncoder.matches(password,user.getPassword()))

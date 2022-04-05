@@ -44,14 +44,17 @@ public class AdminController {
     }
 
     @PostMapping("/register")
-    public String submitForm(@ModelAttribute("userForm") user userForm, HttpSession session, BindingResult bindingResult, RedirectAttributes redir) {
-        System.out.println(userForm.getUsername());
+    public String submitForm(Model model, @ModelAttribute("userForm") user userForm, HttpSession session, BindingResult bindingResult, RedirectAttributes redir) {
+        String username = userForm.getUsername();
+        if(authenticateService.findByUsername(username) != null) {
+            model.addAttribute("message", "This username has already been taken");
+            return "register";
+        }
         userValidator.validate(userForm, bindingResult);
 		if (bindingResult.hasErrors()) {	
 	        return "register";
 	    }
 		userDAO.save(userForm);
-		String username = userForm.getUsername();
 		authenticateService.loginUser(session, username);
 		return "redirect:/customer_profile";
     }

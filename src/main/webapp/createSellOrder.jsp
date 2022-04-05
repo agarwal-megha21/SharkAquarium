@@ -174,16 +174,16 @@
 
                     <section class="container">
                         <div class="form-container" style="align-items: left; margin-left: 0px; margin-right: 800px; width: 800px;" >
-                            <form method="POST" action="/createSellOrder" model="order" class="form-signin" style="margin-top: 100px;margin-right: 0px; background-color: rgba(255,255,255,0.64); margin-left: 500px;">
+                            <form:form method="POST" action="/createSellOrder" modelAttribute="order" style="margin-top: 100px;margin-right: 0px; background-color: rgba(255,255,255,0.64); margin-left: 500px;">
                                 <div class="container" style="margin-top: 0px;">
                                     <div class="row form-group" style="margin-top: 10px;">
                                         <h2 class="text-center" style="color:black;"><strong>Add Order</strong></h2>
                                     </div>
                                     <div class="row form-group" style="margin-top: 10px;">
                                         <label style="color:black;" class="col-form-label" for="name-input-field">Company</label>
-                                        <br>
-                                        <input type="text" placeholder="Enter Company Name" name="company" id="company"
-                                            required="required">
+                                        <form:select path="company" >
+                                            <form:options items="${companies}"/>
+                                        </form:select>
                                     </div>
 
                                     <div class="row form-group" style="margin-top: 10px;">
@@ -208,7 +208,7 @@
                                     <div class="row form-group" style="margin-top: 10px;">
                                     </div>
                                 </div>
-                            </form>
+                            </form:form>
                         </div>
                     </section>
                     <section></section>

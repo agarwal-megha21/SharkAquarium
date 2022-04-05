@@ -63,11 +63,12 @@
                     </div>
                     <div class="row form-group">
                         <spring:bind path="username">
-                            <div class="form-group ${status.error ? 'has-error' : ''}">
                             <form:input type="text" path="username" class="form-control" placeholder="Username" autofocus="true"></form:input>
                             <form:errors path="username"></form:errors>
                             </div>
                         </spring:bind>
+                        <div class="form-group ${error != null ? 'has-error' : ''}">
+                            <span>${message}</span>
                     </div>
 
                     <div class="row form-group" style="margin-top: 20px;">
@@ -100,7 +101,11 @@
                     <div class="row form-group">
                         <spring:bind path="role">
                             <div class="form-group ${status.error ? 'has-error' : ''}">
-                            <form:input type="role" path="role" class="form-control" placeholder="Role"></form:input>
+                            <form:select type="role" path="role" class="form-control" placeholder="Role">
+                                <form:option value="investor">Investor</form:option>
+                                <form:option value="entrepreneur">Entrepreneur</form:option>
+                            </form:select>
+
                             <form:errors path="role"></form:errors>
                             </div>
                         </spring:bind>

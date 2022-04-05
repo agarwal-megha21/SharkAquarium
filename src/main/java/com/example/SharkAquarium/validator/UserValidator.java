@@ -40,7 +40,7 @@ public class UserValidator implements Validator{
             errors.rejectValue("passwordConfirm", "Diff.userForm.passwordConfirm");
         }
 
-        if (!(user.getRole().equals("Investor") || user.getRole().equals("Entrepreneur"))) {
+        if (!(user.getRole().equalsIgnoreCase("Investor") || user.getRole().equalsIgnoreCase("Entrepreneur"))) {
             errors.rejectValue("role", "Diff.userForm.role");
         }
     }  
