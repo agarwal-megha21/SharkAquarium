@@ -33,6 +33,7 @@
       
         <!-- Template Main CSS File -->
         <link href="assets/css/style.css" rel="stylesheet">
+        <link href="assets/css/style1.css" rel="stylesheet">
 
         <!-- =======================================================
         * Template Name: FlexStart - v1.9.0
@@ -67,17 +68,93 @@
         </header><!-- End Header -->
 
         <section class="container" style="background-size: center;height: 900px; margin-top: 50px;">
-            <div
-                style="margin-top: 100px; align-items: center; margin-left: 150px; margin-right: 800px; width: 800px;">
-                <h3>Welcome </h3>
-
-                <h4>Name: ${customer.firstName} ${customer.lastName}</h4>
-                <h4>Email Id: ${customer.emailID}</h4>
-                <h4>Gender: ${customer.gender}</h4>
-                <h4>Address: ${customer.houseNo} ${customer.streetName} ${customer.city} ${customer.pincode}</h4>
-                <h4>Phone: ${customer.phoneNo}</h4>
-                <br>
+        <div class="container">
+            <div class="main-body">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex flex-column align-items-center text-center">
+                                    <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="Entrepreneur"
+                                        class="rounded-circle p-1 bg-primary" width="110">
+                                    <div class="mt-3">
+                                        <h4>${customer.firstName} ${customer.lastName}</h4>
+                                        <p class="text-secondary mb-1">Entrepreneur</p>
+                                        <br>
+                                        <a href="create_pitch" class="btn btn-primary">Create Pitch</a>
+                                        <a href="#sec1" class="btn btn-outline-primary">My Pitches</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Full Name</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input readonly type="text" class="form-control" value="${customer.firstName} ${customer.lastName}">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Email</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input readonly type="text" class="form-control" value="${customer.emailID}">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">User Gender</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input readonly type="text" class="form-control" value="${customer.gender}">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Mobile No.</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input readonly type="text" class="form-control" value="${customer.phoneNo}">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Address</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input readonly type="text" class="form-control" value="${customer.houseNo} ${customer.streetName}">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">City</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input readonly type="text" class="form-control"
+                                            value="${customer.city} ">
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">PIN Code</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input readonly type="text" class="form-control"
+                                            value="${customer.pincode}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </div>
         </section>
 
         <section>
@@ -85,8 +162,10 @@
                 <br>
                 <div style="margin-top: 30px;">
                     <caption>
-                        <h2 style="text-align: center;" class=navbar-brand aria-controls="navbarResponsive" aria-expanded="false"
-                            aria-label="Toggle navigation">My Pitches</h2>
+                        <div class="col-lg-6 d-flex flex-column justify-content-center">
+                            <h2 data-aos="fade-up" style="text-align: center; align-content: center; color: blue;">My Pitches</h2>
+                        <br>    
+                        </div>
                     </caption>
                 </div>
 
