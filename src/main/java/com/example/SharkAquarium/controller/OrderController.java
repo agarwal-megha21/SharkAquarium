@@ -1,13 +1,17 @@
 package com.example.SharkAquarium.controller;
 
+import java.util.LinkedHashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import com.example.SharkAquarium.model.equityHolding;
 import com.example.SharkAquarium.model.order;
+import com.example.SharkAquarium.model.pitch;
 import com.example.SharkAquarium.service.AuthenticateService;
 import com.example.SharkAquarium.service.EquityHoldingService;
 import com.example.SharkAquarium.service.OrderService;
+import com.example.SharkAquarium.service.PitchService;
 import com.example.SharkAquarium.service.WalletService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,14 +33,23 @@ public class OrderController {
     private WalletService walletService;
     @Autowired
     private EquityHoldingService equityHoldingService;
+    @Autowired
+    private PitchService pitchService;
     
     @GetMapping("/createBuyOrder")
     public String fetchSellOrders(HttpSession session, Model model) {
         String username = authenticateService.getCurrentUser(session);
         List<order> pList = orderService.getOrders(1, username);
         List<order> mList = orderService.getMyOrders(0, username);
+        List<pitch> elist = pitchService.getAllPitches();
+        LinkedHashMap<String, String> companies = new LinkedHashMap<String, String>();
+        for (var pitch : elist) {
+            companies.put(pitch.getCompany(), pitch.getCompany());
+        }
         model.addAttribute("list", pList);
         model.addAttribute("mylist", mList);
+        model.addAttribute("companies", companies);
+        model.addAttribute("order", new order());
         return "createBuyOrder";
     }
  
@@ -85,8 +98,15 @@ public class OrderController {
         String username = authenticateService.getCurrentUser(session);
         List<order> pList = orderService.getOrders(0, username);
         List<order> mList = orderService.getMyOrders(1, username);
+        List<equityHolding> elist = equityHoldingService.getHoldings(username);
+        LinkedHashMap<String, String> companies = new LinkedHashMap<String, String>();
+        for(var holding: elist){
+            companies.put(holding.getCompany(), holding.getCompany());
+        }
         model.addAttribute("list", pList);
         model.addAttribute("mylist", mList);
+        model.addAttribute("companies", companies);
+        model.addAttribute("order", new order());
         return "createSellOrder";
     }
     
