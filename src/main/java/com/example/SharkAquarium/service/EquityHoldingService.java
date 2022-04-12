@@ -43,6 +43,8 @@ public class EquityHoldingService {
 
     // simply creating an order(this hasn't been completed)
     public boolean initiateHolding(int amount, String userName, String company) {
+        if (!equityHoldingDAO.isEquityExists(userName, company))
+            return false;
         equityHolding w = equityHoldingDAO.getHolding(userName, company);
         if (amount <= w.getAvailableQuantity()) {
             w.setAvailableQuantity(w.getAvailableQuantity() - amount);
